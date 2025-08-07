@@ -41,7 +41,7 @@ export default function Projects() {
       description: t('Crm integrado com Ia, controle de estoque, rotas de caminhões, financeiro e muito mais!'),
       image: "/img/capaproject2.jpeg",
       technologies: ["React.js", "TypeScript", "Mysql", "Node.js", "TailwindCSS"],
-      githubUrl: "https://github.com/StockInvesting/app-stocks",
+      githubUrl: "https://github.com/Estoka-ai/Estoka.ai",
       liveUrl: "https://estoka-46s2ayozv-joaomatheus23s-projects.vercel.app/",
       category: "Fullstack"
     },
