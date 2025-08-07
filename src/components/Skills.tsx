@@ -11,8 +11,7 @@ import {
   FaDocker, 
   FaAws, 
   FaGitAlt, 
-  FaLinux,
-  FaNpm
+  FaLinux
 } from 'react-icons/fa';
 import { 
   SiTypescript, 
@@ -28,8 +27,6 @@ import {
   SiNginx,
   SiZapier
 } from 'react-icons/si';
-import { MdOutlineAutoFixHigh } from 'react-icons/md';
-import { DiMsqlServer, DiVisualstudio } from 'react-icons/di';
 import { TbBrandCSharp, TbNetwork } from 'react-icons/tb';
 import { SiGraphql, SiRust, SiGo, SiKubernetes, SiPython } from 'react-icons/si';
 import { GiBrain } from 'react-icons/gi';
@@ -38,13 +35,13 @@ import { useTranslation } from 'react-i18next';
 interface Skill {
   name: string;
   level: string; // Changed to string to accept translated levels
-  icon: React.ComponentType<any>;
+  icon: React.ComponentType<{ className?: string }>;
   color: string;
 }
 
 interface SkillCategory {
   title: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   skills: Skill[];
   color: string;
 }

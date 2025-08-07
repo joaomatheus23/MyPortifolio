@@ -10,7 +10,7 @@ interface NavbarProps {
   isDarkMode: boolean;
 }
 
-export default function Navbar({ isDarkMode }: NavbarProps) {
+export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
 
 interface Project {
   id: number;
@@ -17,12 +18,7 @@ interface Project {
 
 
 
-const categoryColors = {
-  Frontend: 'primary',
-  Backend: 'secondary',
-  SaaS: 'accent',
-  Automation: 'glow-cyan'
-};
+
 
 export default function Projects() {
   const { t } = useTranslation();
@@ -135,16 +131,18 @@ export default function Projects() {
                   
                   {/* Real image or placeholder */}
                   {project.image && project.image !== "/img/capaproject1.jpeg" ? (
-                    <img 
+                    <Image 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   ) : project.image === "/img/capaproject1.jpeg" ? (
-                    <img 
+                    <Image 
                       src={project.image} 
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   ) : (
                     <div className="w-full h-full bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 flex items-center justify-center">
@@ -153,6 +151,8 @@ export default function Projects() {
                         {project.category === 'Backend' && '⚙️'}
                         {project.category === 'SaaS' && '☁️'}
                         {project.category === 'Automation' && '🤖'}
+                        {project.category === 'Fullstack' && '🖥️'}
+                        {project.category === 'Backend and Automation' && '⚙️'}
                       </div>
                     </div>
                   )}
