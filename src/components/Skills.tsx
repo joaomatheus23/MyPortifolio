@@ -66,7 +66,7 @@ export default function Skills() {
         { name: "Next.js", level: t('skills.levels.advanced'), icon: SiNextdotjs, color: "text-white" },
         { name: "TailwindCSS", level: t('skills.levels.advanced'), icon: SiTailwindcss, color: "text-cyan-400" },
         { name: "Sass/SCSS", level: t('skills.levels.intermediate'), icon: SiSass, color: "text-pink-400" },
-        { name: "Framer Motion", level: t('skills.levels.intermediate'), icon: SiFramer, color: "text-purple-400" },
+        { name: "Framer Motion", level: t('skills.levels.beginner'), icon: SiFramer, color: "text-purple-400" },
         { name: "Vite", level: t('skills.levels.intermediate'), icon: SiVite, color: "text-yellow-400" }
       ]
     },
@@ -77,12 +77,12 @@ export default function Skills() {
       skills: [
         { name: "PHP", level: t('skills.levels.advanced'), icon: FaPhp, color: "text-purple-400" },
         { name: "C#", level: t('skills.levels.intermediate'), icon: TbBrandCSharp, color: "text-purple-500" },
-        { name: "Node.js", level: t('skills.levels.advanced'), icon: FaNodeJs, color: "text-green-500" },
-        { name: "Laravel", level: t('skills.levels.advanced'), icon: FaLaravel, color: "text-red-400" },
+        { name: "Node.js", level: t('skills.levels.intermediate'), icon: FaNodeJs, color: "text-green-500" },
+        { name: "Laravel", level: t('skills.levels.intermediate'), icon: FaLaravel, color: "text-red-400" },
         { name: ".NET Core", level: t('skills.levels.intermediate'), icon: SiDotnet, color: "text-purple-400" },
         { name: "MySQL", level: t('skills.levels.advanced'), icon: SiMysql, color: "text-blue-500" },
         { name: "PostgreSQL", level: t('skills.levels.intermediate'), icon: SiPostgresql, color: "text-blue-400" },
-        { name: "Redis", level: t('skills.levels.intermediate'), icon: SiRedis, color: "text-red-500" }
+        { name: "Redis", level: t('skills.levels.beginner'), icon: SiRedis, color: "text-red-500" }
       ]
     },
     {
@@ -91,10 +91,10 @@ export default function Skills() {
       color: "accent",
       skills: [
         { name: "Docker", level: t('skills.levels.intermediate'), icon: FaDocker, color: "text-blue-400" },
-        { name: "AWS", level: t('skills.levels.intermediate'), icon: FaAws, color: "text-orange-400" },
+        { name: "AWS", level: t('skills.levels.beginner'), icon: FaAws, color: "text-orange-400" },
         { name: "Git", level: t('skills.levels.advanced'), icon: FaGitAlt, color: "text-orange-500" },
         { name: "Linux", level: t('skills.levels.intermediate'), icon: FaLinux, color: "text-yellow-400" },
-        { name: "Nginx", level: t('skills.levels.intermediate'), icon: SiNginx, color: "text-green-500" },
+        { name: "Nginx", level: t('skills.levels.beginner'), icon: SiNginx, color: "text-green-500" },
         { name: "n8n", level: t('skills.levels.advanced'), icon: TbNetwork, color: "text-purple-400" },
         { name: "Zapier", level: t('skills.levels.beginner'), icon: SiZapier, color: "text-orange-400" },
         { name: "Python", level: t('skills.levels.intermediate'), icon: SiPython, color: "text-yellow-400" }
