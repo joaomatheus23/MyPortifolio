@@ -2,6 +2,7 @@
   "nav": {
     "home": "Home",
     "about": "Sobre",
+    "education": "Educação",
     "portfolio": "Portfolio",
     "skills": "Skills",
     "contact": "Contato"
@@ -132,6 +133,61 @@
       "title": "Disponibilidade",
       "status": "Disponível para novos projetos",
       "description": "Respondo normalmente em até 24 horas. Para projetos urgentes, entre em contato via WhatsApp."
+    }
+  },
+  "education": {
+    "title": "Formação",
+    "titleHighlight": "Acadêmica",
+    "academic": {
+      "title": "Formação Acadêmica",
+      "highSchool": {
+        "title": "Ensino Médio",
+        "institution": "Escola SESI, Jaú",
+        "period": "2021–2023",
+        "description": "Concluí o ensino médio com bom desempenho acadêmico e sempre tive forte participação nas aulas, o que contribuiu significativamente para o meu desenvolvimento pessoal."
+      },
+      "english": {
+        "title": "Curso de Inglês",
+        "institution": "Yazigi, Jaú",
+        "period": "2019–2023",
+        "description": "Estudei inglês com foco em fluência tanto para uso pessoal quanto profissional. Alcancei o nível intermediário, me preparando para atuar em ambientes que exigem comunicação global."
+      },
+      "graduation": {
+        "title": "Graduação em Ciência da Computação",
+        "institution": "Universidade do Sagrado Coração, Bauru",
+        "period": "2024–2028",
+        "description": "Atualmente curso Ciência da Computação, com o objetivo de me tornar um especialista na área de tecnologia. Estou aprofundando meus conhecimentos em desenvolvimento de sistemas, algoritmos e estrutura de dados."
+      }
+    },
+    "courses": {
+      "title": "Cursos e Certificados",
+      "viewCertificate": "Ver Certificado",
+      "items": {
+        "reactIntensive": {
+          "title": "ReactJS Intensivo",
+          "platform": "Udemy",
+          "hours": "4h",
+          "description": "Fiz uma capacitação rápida e prática com ReactJS, que me ajudou a reforçar os fundamentos e a ganhar agilidade no desenvolvimento de front-end."
+        },
+        "reactSpecialized": {
+          "title": "ReactJS Especializado",
+          "platform": "Danki-Code",
+          "hours": "10h",
+          "description": "Participei de um treinamento específico em ReactJS, onde aprofundei meus conhecimentos em componentes, hooks e construção de interfaces dinâmicas e reutilizáveis."
+        },
+        "webDevelopment": {
+          "title": "Desenvolvimento Web",
+          "platform": "Udemy",
+          "hours": "117,5h",
+          "description": "Realizei uma formação completa com foco no desenvolvimento de aplicações web modernas, trabalhando com HTML, CSS, JavaScript e diversos frameworks que ampliaram minha visão como desenvolvedor."
+        },
+        "webDevelopmentDanki": {
+          "title": "Desenvolvimento Web",
+          "platform": "Danki-Code",
+          "hours": "36h",
+          "description": "Estudei desde os fundamentos do front-end (HTML, CSS, JavaScript) até a integração com o backend, incluindo noções de PHP e banco de dados, o que fortaleceu minha base como desenvolvedor fullstack."
+        }
+      }
     }
   },
   "footer": {

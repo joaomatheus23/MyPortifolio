@@ -51,8 +51,8 @@ export default function AboutMe() {
 
               <p className="text-lg text-gray-300 leading-relaxed">
                 {t('about.description4')}{' '}
-                <span className="text-primary">React</span>, <span className="text-primary">Vue.js</span> {t('about.description5')}{' '}
-                <span className="text-secondary">PHP</span>, <span className="text-secondary">C#</span> {t('about.description6')}{' '}
+                <span className="text-primary">React</span>, <span className="text-primary">Next.js</span> {t('about.description5')}{' '}
+                <span className="text-secondary">Node</span>, <span className="text-secondary">Laravel</span> {t('about.description6')}{' '}
                 <span className="text-accent">{t('about.automations')}</span> {t('about.and')}{' '}
                 <span className="text-accent">{t('about.saas')}</span>.
               </p>

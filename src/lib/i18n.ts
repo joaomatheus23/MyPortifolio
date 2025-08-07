@@ -15,22 +15,31 @@ const resources = {
   }
 };
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources,
-    fallbackLng: 'pt',
-    debug: process.env.NODE_ENV === 'development',
-    
-    interpolation: {
-      escapeValue: false, // React already does escaping
-    },
+// Create i18n instance without initializing it
+const i18nInstance = i18n.createInstance();
 
-    detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
-      caches: ['localStorage'],
-    }
-  });
+// Initialize i18n only on client side
+export const initI18n = () => {
+  if (typeof window !== 'undefined' && !i18nInstance.isInitialized) {
+    i18nInstance
+      .use(LanguageDetector)
+      .use(initReactI18next)
+      .init({
+        resources,
+        fallbackLng: 'pt',
+        debug: process.env.NODE_ENV === 'development',
+        
+        interpolation: {
+          escapeValue: false, // React already does escaping
+        },
 
-export default i18n;
+        detection: {
+          order: ['localStorage', 'navigator', 'htmlTag'],
+          caches: ['localStorage'],
+        }
+      });
+  }
+  return i18nInstance;
+};
+
+export default i18nInstance;

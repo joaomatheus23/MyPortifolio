@@ -28,10 +28,10 @@ import {
   SiNginx,
   SiZapier
 } from 'react-icons/si';
-import { MdIntegrationInstructions, MdOutlineAutoFixHigh } from 'react-icons/md';
+import { MdOutlineAutoFixHigh } from 'react-icons/md';
 import { DiMsqlServer, DiVisualstudio } from 'react-icons/di';
 import { TbBrandCSharp, TbNetwork } from 'react-icons/tb';
-import { SiGraphql, SiRust, SiGo, SiKubernetes } from 'react-icons/si';
+import { SiGraphql, SiRust, SiGo, SiKubernetes, SiPython } from 'react-icons/si';
 import { GiBrain } from 'react-icons/gi';
 import { useTranslation } from 'react-i18next';
 
@@ -79,8 +79,8 @@ export default function Skills() {
       color: "secondary",
       skills: [
         { name: "PHP", level: t('skills.levels.advanced'), icon: FaPhp, color: "text-purple-400" },
-        { name: "C#", level: t('skills.levels.advanced'), icon: TbBrandCSharp, color: "text-purple-500" },
-        { name: "Node.js", level: t('skills.levels.intermediate'), icon: FaNodeJs, color: "text-green-500" },
+        { name: "C#", level: t('skills.levels.intermediate'), icon: TbBrandCSharp, color: "text-purple-500" },
+        { name: "Node.js", level: t('skills.levels.advanced'), icon: FaNodeJs, color: "text-green-500" },
         { name: "Laravel", level: t('skills.levels.advanced'), icon: FaLaravel, color: "text-red-400" },
         { name: ".NET Core", level: t('skills.levels.intermediate'), icon: SiDotnet, color: "text-purple-400" },
         { name: "MySQL", level: t('skills.levels.advanced'), icon: SiMysql, color: "text-blue-500" },
@@ -94,13 +94,13 @@ export default function Skills() {
       color: "accent",
       skills: [
         { name: "Docker", level: t('skills.levels.intermediate'), icon: FaDocker, color: "text-blue-400" },
-        { name: "AWS", level: t('skills.levels.beginner'), icon: FaAws, color: "text-orange-400" },
+        { name: "AWS", level: t('skills.levels.intermediate'), icon: FaAws, color: "text-orange-400" },
         { name: "Git", level: t('skills.levels.advanced'), icon: FaGitAlt, color: "text-orange-500" },
         { name: "Linux", level: t('skills.levels.intermediate'), icon: FaLinux, color: "text-yellow-400" },
         { name: "Nginx", level: t('skills.levels.intermediate'), icon: SiNginx, color: "text-green-500" },
         { name: "n8n", level: t('skills.levels.advanced'), icon: TbNetwork, color: "text-purple-400" },
-        { name: "Zapier", level: t('skills.levels.intermediate'), icon: SiZapier, color: "text-orange-400" },
-        { name: "CI/CD", level: t('skills.levels.beginner'), icon: MdIntegrationInstructions, color: "text-gray-400" }
+        { name: "Zapier", level: t('skills.levels.beginner'), icon: SiZapier, color: "text-orange-400" },
+        { name: "Python", level: t('skills.levels.intermediate'), icon: SiPython, color: "text-yellow-400" }
       ]
     }
   ];

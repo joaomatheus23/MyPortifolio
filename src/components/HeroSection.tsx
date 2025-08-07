@@ -48,7 +48,24 @@ export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(true); // Inicia como true para primeira carga
   const [animationKey, setAnimationKey] = useState(0);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [isI18nReady, setIsI18nReady] = useState(false);
+
+  // Wait for i18n to be ready
+  useEffect(() => {
+    if (i18n.isInitialized) {
+      setIsI18nReady(true);
+    } else {
+      const checkReady = () => {
+        if (i18n.isInitialized) {
+          setIsI18nReady(true);
+        } else {
+          setTimeout(checkReady, 100);
+        }
+      };
+      checkReady();
+    }
+  }, [i18n.isInitialized]);
 
   // Intersection Observer para detectar quando a seção está visível
   useEffect(() => {
@@ -72,10 +89,10 @@ export default function HeroSection() {
   }, [isVisible]);
 
   // Textos para animação de typewriter com velocidades mais rápidas
-  const greeting = useTypewriter(t('hero.greeting'), 400, 80, isVisible);
-  const name = useTypewriter(t('hero.name'), 1200, 120, isVisible);
-  const fullName = useTypewriter(t('hero.fullName'), 2200, 100, isVisible);
-  const tagline = useTypewriter(t('hero.tagline'), 3500, 60, isVisible);
+  const greeting = useTypewriter(isI18nReady ? t('hero.greeting') : "Hello World, I'm", 400, 80, isVisible);
+  const name = useTypewriter(isI18nReady ? t('hero.name') : "João", 1200, 120, isVisible);
+  const fullName = useTypewriter(isI18nReady ? t('hero.fullName') : "Matheus Marques", 2200, 100, isVisible);
+  const tagline = useTypewriter(isI18nReady ? t('hero.tagline') : "Transformando ideias em código e experiências em soluções", 3500, 60, isVisible);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
@@ -193,14 +210,14 @@ export default function HeroSection() {
                 onClick={scrollToAbout}
                 className="group relative px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg font-semibold text-dark hover:scale-105 transition-all duration-300 animate-gradient"
               >
-                <span className="relative z-10">{t('hero.aboutBtn')}</span>
+                <span className="relative z-10">{isI18nReady ? t('hero.aboutBtn') : "Sobre Mim"}</span>
               </button>
 
               <a
                 href="#projects"
                 className="group relative px-8 py-4 glass rounded-lg font-semibold text-white hover:glow-cyan transition-all duration-300 border border-primary/30 hover:border-primary/60"
               >
-                {t('hero.projectsBtn')}
+                {isI18nReady ? t('hero.projectsBtn') : "Ver Projetos"}
               </a>
             </motion.div>
           </motion.div>
@@ -273,7 +290,7 @@ export default function HeroSection() {
           className="flex flex-col items-center text-primary hover:text-white transition-colors duration-300 group"
         >
           <span className="text-sm font-mono mb-2 opacity-70 group-hover:opacity-100">
-            {t('hero.scrollDown')}
+            {isI18nReady ? t('hero.scrollDown') : "scroll down"}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

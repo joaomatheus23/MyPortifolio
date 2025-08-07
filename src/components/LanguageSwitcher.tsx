@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -20,6 +20,23 @@ const languages = [
 export default function LanguageSwitcher() {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    // Wait for i18n to be ready
+    if (i18n.isInitialized) {
+      setIsReady(true);
+    } else {
+      const checkReady = () => {
+        if (i18n.isInitialized) {
+          setIsReady(true);
+        } else {
+          setTimeout(checkReady, 100);
+        }
+      };
+      checkReady();
+    }
+  }, [i18n.isInitialized]);
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
 
@@ -27,6 +44,15 @@ export default function LanguageSwitcher() {
     i18n.changeLanguage(langCode);
     setIsOpen(false);
   };
+
+  if (!isReady) {
+    return (
+      <div className="flex items-center gap-2 p-2 rounded-lg glass border border-white/10">
+        <span className="text-xl">🇧🇷</span>
+        <span className="text-sm font-medium text-white hidden sm:block">PT</span>
+      </div>
+    );
+  }
 
   return (
     <div className="relative">

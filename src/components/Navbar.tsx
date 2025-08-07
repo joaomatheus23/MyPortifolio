@@ -2,26 +2,43 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import LanguageSwitcher from './LanguageSwitcher';
 
 interface NavbarProps {
   isDarkMode: boolean;
-  toggleTheme: () => void;
 }
 
-export default function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
+export default function Navbar({ isDarkMode }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [isI18nReady, setIsI18nReady] = useState(false);
+
+  // Wait for i18n to be ready
+  useEffect(() => {
+    if (i18n.isInitialized) {
+      setIsI18nReady(true);
+    } else {
+      const checkReady = () => {
+        if (i18n.isInitialized) {
+          setIsI18nReady(true);
+        } else {
+          setTimeout(checkReady, 100);
+        }
+      };
+      checkReady();
+    }
+  }, [i18n.isInitialized]);
 
   const navItems = [
-    { name: t('nav.home'), href: '#home' },
-    { name: t('nav.about'), href: '#about' },
-    { name: t('nav.portfolio'), href: '#projects' },
-    { name: t('nav.skills'), href: '#skills' },
-    { name: t('nav.contact'), href: '#contact' }
+    { name: isI18nReady ? t('nav.home') : 'Home', href: '#home' },
+    { name: isI18nReady ? t('nav.about') : 'About', href: '#about' },
+    { name: isI18nReady ? t('nav.education') : 'Education', href: '#education' },
+    { name: isI18nReady ? t('nav.portfolio') : 'Portfolio', href: '#projects' },
+    { name: isI18nReady ? t('nav.skills') : 'Skills', href: '#skills' },
+    { name: isI18nReady ? t('nav.contact') : 'Contact', href: '#contact' }
   ];
 
   useEffect(() => {
@@ -87,25 +104,11 @@ export default function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
               ))}
             </div>
 
-            {/* Theme toggle, language switcher and mobile menu */}
+            {/* Language switcher and mobile menu */}
             <div className="flex items-center space-x-4">
               {/* Language Switcher */}
               <LanguageSwitcher />
               
-              {/* Theme toggle */}
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={toggleTheme}
-                className="p-2 rounded-lg glass border border-white/10 hover:border-primary/30 transition-all duration-300"
-              >
-                {isDarkMode ? (
-                  <Sun className="w-5 h-5 text-primary" />
-                ) : (
-                  <Moon className="w-5 h-5 text-primary" />
-                )}
-              </motion.button>
-
               {/* Mobile menu button */}
               <motion.button
                 whileHover={{ scale: 1.1 }}
