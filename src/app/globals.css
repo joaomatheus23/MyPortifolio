@@ -1,26 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a;
+  --foreground: #ffffff;
+  --cyber-blue: #00d4ff;
+  --neon-purple: #8b5cf6;
+  --neon-green: #00ff88;
+  --dark-bg: #0f0f0f;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glow-cyan: #00ffff;
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-cyber: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #00ff88 100%);
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-cyber-blue: var(--cyber-blue);
+  --color-neon-purple: var(--neon-purple);
+  --color-neon-green: var(--neon-green);
+  --color-dark-bg: var(--dark-bg);
+  --color-glass-bg: var(--glass-bg);
+  --color-glow-cyan: var(--glow-cyan);
+  
+  /* Custom colors for futuristic theme */
+  --color-primary: #00d4ff;
+  --color-secondary: #8b5cf6;
+  --color-accent: #00ff88;
+  --color-dark: #0f0f0f;
+  --color-darker: #0a0a0a;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  
+  /* Fonts */
+  --font-display: 'Orbitron', monospace;
+  --font-mono: 'Space Mono', monospace;
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
+  background: var(--dark-bg);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Global glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Glow effects */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-green {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Text glow effects */
+.text-glow-cyan {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+}
+
+.text-glow-green {
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--cyber-blue), var(--neon-purple));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--glow-cyan), var(--neon-green));
 }

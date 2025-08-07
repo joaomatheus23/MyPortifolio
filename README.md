@@ -1,36 +1,162 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Portfólio Futurista - João Matheus
 
-## Getting Started
+Um portfólio moderno e futurista para desenvolvedor Full Stack, criado com Next.js, TailwindCSS e Framer Motion.
 
-First, run the development server:
+## ✨ Características
 
+- **Design Futurista**: Interface moderna com efeitos glassmorphism, gradientes neon e animações suaves
+- **Totalmente Responsivo**: Layout 100% responsivo para todos os dispositivos
+- **Animações Avançadas**: Animações fluidas com Framer Motion
+- **Performance Otimizada**: Construído com Next.js 15 e TailwindCSS 4
+- **Formulário de Contato**: Integração com EmailJS para envio de mensagens
+- **SEO Otimizado**: Metadados configurados para melhor indexação
+
+## 🎨 Seções
+
+1. **Hero Section** - Apresentação principal com nome e frase de impacto
+2. **About Me** - Descrição profissional e experiência
+3. **Projects** - Showcase de projetos com links para GitHub e demo
+4. **Skills** - Habilidades técnicas organizadas por categoria
+5. **Contact** - Formulário de contato e links para redes sociais
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend**: Next.js 15, React, TypeScript
+- **Estilização**: TailwindCSS 4, CSS customizado
+- **Animações**: Framer Motion
+- **Formulário**: EmailJS
+- **Ícones**: Lucide React
+- **Fontes**: Orbitron, Space Mono (Google Fonts)
+
+## 🚀 Como Executar
+
+### Pré-requisitos
+
+- Node.js 18+ 
+- npm ou yarn
+
+### Instalação
+
+1. Clone o repositório:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/portfolio-futurista.git
+cd portfolio-futurista
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instale as dependências:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Execute o projeto em modo de desenvolvimento:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Acesse [http://localhost:3000](http://localhost:3000) no seu navegador
 
-## Learn More
+### Build para Produção
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ Configuração
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### EmailJS
 
-## Deploy on Vercel
+Para configurar o formulário de contato:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Crie uma conta no [EmailJS](https://www.emailjs.com/)
+2. Configure um serviço de email
+3. Crie um template de email
+4. Atualize as credenciais em `src/components/ContactForm.tsx`:
+   - `YOUR_SERVICE_ID`
+   - `YOUR_TEMPLATE_ID`
+   - `YOUR_PUBLIC_KEY`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Personalização
+
+#### Cores e Tema
+
+As cores principais estão definidas em `src/app/globals.css`:
+
+```css
+:root {
+  --cyber-blue: #00d4ff;
+  --neon-purple: #8b5cf6;
+  --neon-green: #00ff88;
+  --dark-bg: #0f0f0f;
+}
+```
+
+#### Conteúdo
+
+Edite os seguintes arquivos para personalizar o conteúdo:
+
+- `src/components/HeroSection.tsx` - Informações principais
+- `src/components/AboutMe.tsx` - Descrição e experiência
+- `src/components/Projects.tsx` - Lista de projetos
+- `src/components/Skills.tsx` - Habilidades técnicas
+- `src/components/ContactForm.tsx` - Informações de contato
+
+#### Imagem de Perfil
+
+Substitua `public/profile.jpg` pela sua foto de perfil (recomendado: 400x400px)
+
+## 📱 Responsividade
+
+O projeto é totalmente responsivo com breakpoints:
+
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px  
+- **Desktop**: > 1024px
+
+## 🎯 Funcionalidades
+
+### Animações
+
+- Animações de entrada ao rolar a página
+- Efeitos hover nos cards e botões
+- Partículas flutuantes animadas
+- Gradientes animados
+
+### Tema
+
+- **Modo Escuro**: Interface principal com tons escuros
+- **Modo Neon**: Efeitos de brilho intensificados (toggle no navbar)
+
+### Performance
+
+- Carregamento lazy de imagens
+- Otimização de fontes
+- Bundling otimizado com Next.js
+
+## 📧 Contato
+
+Para dúvidas sobre este projeto:
+
+- **Email**: joaomatheus@email.com
+- **LinkedIn**: [linkedin.com/in/joaomatheus](https://linkedin.com/in/joaomatheus)
+- **GitHub**: [github.com/joaomatheus](https://github.com/joaomatheus)
+
+## 📄 Licença
+
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para:
+
+1. Fazer fork do projeto
+2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abrir um Pull Request
+
+---
+
+⭐ Se este projeto te ajudou, considere dar uma estrela no repositório!
+
+Desenvolvido com 💜 por [João Matheus](https://github.com/joaomatheus)

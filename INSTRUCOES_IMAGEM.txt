@@ -1,0 +1,8 @@
+Para adicionar sua foto:
+1. Arraste a imagem para a pasta public/
+2. Renomeie para 'profile.jpg'
+3. A imagem aparecerá automaticamente no círculo
+
+Formato recomendado: JPG/PNG
+Tamanho ideal: 400x400px ou maior
+
