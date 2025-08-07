@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 // Hook customizado para animação de typewriter com reset
 const useTypewriter = (text: string, delay: number = 0, speed: number = 100, resetTrigger: boolean = false) => {
@@ -47,6 +48,7 @@ export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(true); // Inicia como true para primeira carga
   const [animationKey, setAnimationKey] = useState(0);
+  const { t } = useTranslation();
 
   // Intersection Observer para detectar quando a seção está visível
   useEffect(() => {
@@ -70,10 +72,10 @@ export default function HeroSection() {
   }, [isVisible]);
 
   // Textos para animação de typewriter com velocidades mais rápidas
-  const greeting = useTypewriter("Hello World, I'm", 400, 80, isVisible);
-  const name = useTypewriter("João", 1200, 120, isVisible);
-  const fullName = useTypewriter("Matheus Marques", 2200, 100, isVisible);
-  const tagline = useTypewriter("Transformando ideias em código e experiências em soluções", 3500, 60, isVisible);
+  const greeting = useTypewriter(t('hero.greeting'), 400, 80, isVisible);
+  const name = useTypewriter(t('hero.name'), 1200, 120, isVisible);
+  const fullName = useTypewriter(t('hero.fullName'), 2200, 100, isVisible);
+  const tagline = useTypewriter(t('hero.tagline'), 3500, 60, isVisible);
 
   const scrollToAbout = () => {
     const aboutSection = document.getElementById('about');
@@ -191,14 +193,14 @@ export default function HeroSection() {
                 onClick={scrollToAbout}
                 className="group relative px-8 py-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg font-semibold text-dark hover:scale-105 transition-all duration-300 animate-gradient"
               >
-                <span className="relative z-10">Sobre Mim</span>
+                <span className="relative z-10">{t('hero.aboutBtn')}</span>
               </button>
 
               <a
                 href="#projects"
                 className="group relative px-8 py-4 glass rounded-lg font-semibold text-white hover:glow-cyan transition-all duration-300 border border-primary/30 hover:border-primary/60"
               >
-                Ver Projetos
+                {t('hero.projectsBtn')}
               </a>
             </motion.div>
           </motion.div>
@@ -271,7 +273,7 @@ export default function HeroSection() {
           className="flex flex-col items-center text-primary hover:text-white transition-colors duration-300 group"
         >
           <span className="text-sm font-mono mb-2 opacity-70 group-hover:opacity-100">
-            scroll down
+            {t('hero.scrollDown')}
           </span>
           <motion.div
             animate={{ y: [0, 8, 0] }}

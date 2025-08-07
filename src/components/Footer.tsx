@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Github, Linkedin, Mail, MessageCircle, Heart, ArrowUp } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+  const { t } = useTranslation();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -36,11 +38,11 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Sobre', href: '#about' },
-    { name: 'Projetos', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contato', href: '#contact' }
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.portfolio'), href: '#projects' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.contact'), href: '#contact' }
   ];
 
   const scrollToSection = (href: string) => {
@@ -77,11 +79,10 @@ export default function Footer() {
                 <span className="text-primary text-lg ml-1">{};</span>
               </h3>
               <p className="text-gray-400 leading-relaxed max-w-md mb-6">
-                Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras. 
-                Transformando ideias em código e experiências em soluções desde 2021.
+                {t('footer.description')}
               </p>
               <div className="flex items-center text-gray-400">
-                <span>Feito com</span>
+                <span>{t('footer.madeWith')}</span>
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 1, repeat: Infinity }}
@@ -89,7 +90,7 @@ export default function Footer() {
                 >
                   <Heart className="w-4 h-4 text-red-400 fill-current" />
                 </motion.div>
-                <span>e muito café ☕</span>
+                <span>{t('footer.coffee')}</span>
               </div>
             </motion.div>
 
@@ -100,7 +101,7 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Links Rápidos
+                {t('footer.quickLinks')}
               </h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -123,7 +124,7 @@ export default function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Contato
+                {t('footer.contact')}
               </h4>
               <div className="space-y-4">
                 <div className="flex items-center text-gray-400">
@@ -168,12 +169,12 @@ export default function Footer() {
           className="py-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between"
         >
           <p className="text-gray-400 text-sm text-center md:text-left mb-4 md:mb-0">
-            © {new Date().getFullYear()} João Matheus. Todos os direitos reservados.
+            © {new Date().getFullYear()} João Matheus. {t('footer.rights')}
           </p>
 
           <div className="flex items-center space-x-6">
             <span className="text-gray-400 text-sm">
-              Desenvolvido com Next.js, TailwindCSS & Framer Motion
+              {t('footer.techStack')}
             </span>
             
             {/* Back to top button */}

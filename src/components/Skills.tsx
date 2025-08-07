@@ -1,12 +1,44 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Code, Database, Cloud, Monitor, Server, Zap } from 'lucide-react';
+import { Monitor, Server, Cloud } from 'lucide-react';
+import { 
+  FaReact, 
+  FaVuejs, 
+  FaPhp, 
+  FaNodeJs, 
+  FaLaravel, 
+  FaDocker, 
+  FaAws, 
+  FaGitAlt, 
+  FaLinux,
+  FaNpm
+} from 'react-icons/fa';
+import { 
+  SiTypescript, 
+  SiNextdotjs, 
+  SiTailwindcss, 
+  SiSass, 
+  SiFramer, 
+  SiVite,
+  SiDotnet,
+  SiMysql,
+  SiPostgresql,
+  SiRedis,
+  SiNginx,
+  SiZapier
+} from 'react-icons/si';
+import { MdIntegrationInstructions, MdOutlineAutoFixHigh } from 'react-icons/md';
+import { DiMsqlServer, DiVisualstudio } from 'react-icons/di';
+import { TbBrandCSharp, TbNetwork } from 'react-icons/tb';
+import { SiGraphql, SiRust, SiGo, SiKubernetes } from 'react-icons/si';
+import { GiBrain } from 'react-icons/gi';
+import { useTranslation } from 'react-i18next';
 
 interface Skill {
   name: string;
-  level: 'Iniciante' | 'Intermediário' | 'Avançado';
-  icon: string;
+  level: string; // Changed to string to accept translated levels
+  icon: React.ComponentType<any>;
   color: string;
 }
 
@@ -17,67 +49,74 @@ interface SkillCategory {
   color: string;
 }
 
-const skillCategories: SkillCategory[] = [
-  {
-    title: "Frontend",
-    icon: Monitor,
-    color: "primary",
-    skills: [
-      { name: "React", level: "Avançado", icon: "⚛️", color: "text-primary" },
-      { name: "Vue.js", level: "Avançado", icon: "💚", color: "text-accent" },
-      { name: "TypeScript", level: "Avançado", icon: "🔷", color: "text-primary" },
-      { name: "Next.js", level: "Intermediário", icon: "▲", color: "text-white" },
-      { name: "TailwindCSS", level: "Avançado", icon: "🎨", color: "text-primary" },
-      { name: "Sass/SCSS", level: "Intermediário", icon: "💅", color: "text-secondary" },
-      { name: "Framer Motion", level: "Intermediário", icon: "🎭", color: "text-accent" },
-      { name: "Vite", level: "Intermediário", icon: "⚡", color: "text-accent" }
-    ]
-  },
-  {
-    title: "Backend",
-    icon: Server,
-    color: "secondary",
-    skills: [
-      { name: "PHP", level: "Avançado", icon: "🐘", color: "text-secondary" },
-      { name: "C#", level: "Avançado", icon: "🔷", color: "text-secondary" },
-      { name: "Node.js", level: "Intermediário", icon: "🟢", color: "text-accent" },
-      { name: "Laravel", level: "Avançado", icon: "🔺", color: "text-secondary" },
-      { name: ".NET Core", level: "Intermediário", icon: "💜", color: "text-secondary" },
-      { name: "MySQL", level: "Avançado", icon: "🗄️", color: "text-primary" },
-      { name: "PostgreSQL", level: "Intermediário", icon: "🐘", color: "text-primary" },
-      { name: "Redis", level: "Intermediário", icon: "🔴", color: "text-accent" }
-    ]
-  },
-  {
-    title: "DevOps & Cloud",
-    icon: Cloud,
-    color: "accent",
-    skills: [
-      { name: "Docker", level: "Intermediário", icon: "🐳", color: "text-primary" },
-      { name: "AWS", level: "Iniciante", icon: "☁️", color: "text-accent" },
-      { name: "Git", level: "Avançado", icon: "📝", color: "text-primary" },
-      { name: "Linux", level: "Intermediário", icon: "🐧", color: "text-accent" },
-      { name: "Nginx", level: "Intermediário", icon: "🔧", color: "text-secondary" },
-      { name: "n8n", level: "Avançado", icon: "🤖", color: "text-accent" },
-      { name: "Zapier", level: "Intermediário", icon: "⚡", color: "text-primary" },
-      { name: "CI/CD", level: "Iniciante", icon: "🔄", color: "text-secondary" }
-    ]
-  }
-];
 
-const levelColors = {
-  'Iniciante': 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-  'Intermediário': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  'Avançado': 'bg-green-500/20 text-green-400 border-green-500/30'
-};
 
-const levelProgress = {
-  'Iniciante': 30,
-  'Intermediário': 65,
-  'Avançado': 90
-};
+
 
 export default function Skills() {
+  const { t } = useTranslation();
+
+  // Skills categories with translations
+  const skillCategories: SkillCategory[] = [
+    {
+      title: t('skills.categories.frontend'),
+      icon: Monitor,
+      color: "primary",
+      skills: [
+        { name: "React", level: t('skills.levels.advanced'), icon: FaReact, color: "text-blue-400" },
+        { name: "Vue.js", level: t('skills.levels.intermediate'), icon: FaVuejs, color: "text-green-400" },
+        { name: "TypeScript", level: t('skills.levels.advanced'), icon: SiTypescript, color: "text-blue-500" },
+        { name: "Next.js", level: t('skills.levels.advanced'), icon: SiNextdotjs, color: "text-white" },
+        { name: "TailwindCSS", level: t('skills.levels.advanced'), icon: SiTailwindcss, color: "text-cyan-400" },
+        { name: "Sass/SCSS", level: t('skills.levels.intermediate'), icon: SiSass, color: "text-pink-400" },
+        { name: "Framer Motion", level: t('skills.levels.intermediate'), icon: SiFramer, color: "text-purple-400" },
+        { name: "Vite", level: t('skills.levels.intermediate'), icon: SiVite, color: "text-yellow-400" }
+      ]
+    },
+    {
+      title: t('skills.categories.backend'),
+      icon: Server,
+      color: "secondary",
+      skills: [
+        { name: "PHP", level: t('skills.levels.advanced'), icon: FaPhp, color: "text-purple-400" },
+        { name: "C#", level: t('skills.levels.advanced'), icon: TbBrandCSharp, color: "text-purple-500" },
+        { name: "Node.js", level: t('skills.levels.intermediate'), icon: FaNodeJs, color: "text-green-500" },
+        { name: "Laravel", level: t('skills.levels.advanced'), icon: FaLaravel, color: "text-red-400" },
+        { name: ".NET Core", level: t('skills.levels.intermediate'), icon: SiDotnet, color: "text-purple-400" },
+        { name: "MySQL", level: t('skills.levels.advanced'), icon: SiMysql, color: "text-blue-500" },
+        { name: "PostgreSQL", level: t('skills.levels.intermediate'), icon: SiPostgresql, color: "text-blue-400" },
+        { name: "Redis", level: t('skills.levels.intermediate'), icon: SiRedis, color: "text-red-500" }
+      ]
+    },
+    {
+      title: t('skills.categories.devops'),
+      icon: Cloud,
+      color: "accent",
+      skills: [
+        { name: "Docker", level: t('skills.levels.intermediate'), icon: FaDocker, color: "text-blue-400" },
+        { name: "AWS", level: t('skills.levels.beginner'), icon: FaAws, color: "text-orange-400" },
+        { name: "Git", level: t('skills.levels.advanced'), icon: FaGitAlt, color: "text-orange-500" },
+        { name: "Linux", level: t('skills.levels.intermediate'), icon: FaLinux, color: "text-yellow-400" },
+        { name: "Nginx", level: t('skills.levels.intermediate'), icon: SiNginx, color: "text-green-500" },
+        { name: "n8n", level: t('skills.levels.advanced'), icon: TbNetwork, color: "text-purple-400" },
+        { name: "Zapier", level: t('skills.levels.intermediate'), icon: SiZapier, color: "text-orange-400" },
+        { name: "CI/CD", level: t('skills.levels.beginner'), icon: MdIntegrationInstructions, color: "text-gray-400" }
+      ]
+    }
+  ];
+
+  // Update level colors and progress to use translations
+  const levelColors = {
+    [t('skills.levels.beginner')]: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
+    [t('skills.levels.intermediate')]: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
+    [t('skills.levels.advanced')]: 'bg-green-500/20 text-green-400 border-green-500/30'
+  };
+
+  const levelProgress = {
+    [t('skills.levels.beginner')]: 30,
+    [t('skills.levels.intermediate')]: 65,
+    [t('skills.levels.advanced')]: 90
+  };
   return (
     <section id="skills" className="py-24 bg-gradient-to-b from-darker via-dark to-darker relative overflow-hidden">
       {/* Background effects */}
@@ -97,10 +136,10 @@ export default function Skills() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              Minhas <span className="text-primary text-glow-cyan">Skills</span>
+              {t('skills.title')} <span className="text-primary text-glow-cyan">{t('skills.titleHighlight')}</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Tecnologias e ferramentas que domino para criar soluções completas e eficientes.
+              {t('skills.subtitle')}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6"></div>
           </motion.div>
@@ -146,7 +185,9 @@ export default function Skills() {
                       {/* Skill header */}
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center">
-                          <span className="text-2xl mr-3">{skill.icon}</span>
+                          <div className="mr-3 flex items-center justify-center w-8 h-8">
+                            <skill.icon className={`text-xl ${skill.color}`} />
+                          </div>
                           <span className="text-white font-semibold">{skill.name}</span>
                         </div>
                         <span className={`px-2 py-1 rounded-full text-xs font-mono border ${levelColors[skill.level]}`}>
@@ -202,19 +243,25 @@ export default function Skills() {
           >
             <div className="glass rounded-2xl p-8 max-w-4xl mx-auto border border-primary/20">
               <h3 className="text-2xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Sempre Aprendendo
+                {t('skills.alwaysLearning.title')}
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                A tecnologia evolui constantemente, e eu me mantenho atualizado com as últimas tendências e melhores práticas. 
-                Estou sempre explorando novas ferramentas e frameworks para oferecer as melhores soluções possíveis.
+                {t('skills.alwaysLearning.description')}
               </p>
               <div className="flex flex-wrap justify-center gap-4 mt-6">
-                {['GraphQL', 'Rust', 'Go', 'Kubernetes', 'AI/ML'].map((tech) => (
+                {[
+                  { name: 'GraphQL', icon: SiGraphql, color: 'text-pink-400' },
+                  { name: 'Rust', icon: SiRust, color: 'text-orange-500' },
+                  { name: 'Go', icon: SiGo, color: 'text-cyan-400' },
+                  { name: 'Kubernetes', icon: SiKubernetes, color: 'text-blue-400' },
+                  { name: 'AI/ML', icon: GiBrain, color: 'text-purple-400' }
+                ].map((tech) => (
                   <span
-                    key={tech}
-                    className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary rounded-full text-sm font-mono border border-primary/20 hover:border-primary/40 transition-colors duration-200"
+                    key={tech.name}
+                    className="px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 text-primary rounded-full text-sm font-mono border border-primary/20 hover:border-primary/40 transition-colors duration-200 flex items-center gap-2"
                   >
-                    🔄 {tech}
+                    <tech.icon className={`text-base ${tech.color}`} />
+                    {tech.name}
                   </span>
                 ))}
               </div>

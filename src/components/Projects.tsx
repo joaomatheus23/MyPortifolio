@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface Project {
   id: number;
@@ -14,68 +15,7 @@ interface Project {
   category: 'Frontend' | 'Backend' | 'SaaS' | 'Automation';
 }
 
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "E-commerce Futurista",
-    description: "Plataforma de e-commerce completa com interface futurista, sistema de pagamentos integrado e painel administrativo avançado.",
-    image: "/projects/ecommerce.jpg",
-    technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Stripe"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://demo-ecommerce.com",
-    category: "Frontend"
-  },
-  {
-    id: 2,
-    title: "API SaaS Manager",
-    description: "API robusta para gerenciamento de SaaS com autenticação JWT, rate limiting e monitoramento em tempo real.",
-    image: "/projects/api-saas.jpg",
-    technologies: ["C#", ".NET Core", "PostgreSQL", "Redis", "Docker"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://api-saas-demo.com",
-    category: "Backend"
-  },
-  {
-    id: 3,
-    title: "Dashboard Analytics",
-    description: "Dashboard interativo para análise de dados com gráficos em tempo real e relatórios personalizáveis.",
-    image: "/projects/dashboard.jpg",
-    technologies: ["Vue.js", "Chart.js", "PHP", "MySQL", "WebSockets"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://dashboard-demo.com",
-    category: "Frontend"
-  },
-  {
-    id: 4,
-    title: "Automation Hub",
-    description: "Plataforma de automação no-code conectando múltiplas APIs e serviços para otimizar workflows empresariais.",
-    image: "/projects/automation.jpg",
-    technologies: ["n8n", "Node.js", "MongoDB", "AWS", "Docker"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://automation-demo.com",
-    category: "Automation"
-  },
-  {
-    id: 5,
-    title: "CRM Social",
-    description: "Sistema CRM com integração social media, automação de marketing e analytics avançado para pequenas empresas.",
-    image: "/projects/crm.jpg",
-    technologies: ["React", "PHP", "Laravel", "MySQL", "Redis"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://crm-demo.com",
-    category: "SaaS"
-  },
-  {
-    id: 6,
-    title: "AI Chat Assistant",
-    description: "Assistente de chat inteligente com IA para atendimento ao cliente automatizado e aprendizado contínuo.",
-    image: "/projects/chatbot.jpg",
-    technologies: ["Python", "FastAPI", "OpenAI", "React", "WebSockets"],
-    githubUrl: "https://github.com/joaomatheus",
-    liveUrl: "https://chatbot-demo.com",
-    category: "SaaS"
-  }
-];
+
 
 const categoryColors = {
   Frontend: 'primary',
@@ -85,6 +25,71 @@ const categoryColors = {
 };
 
 export default function Projects() {
+  const { t } = useTranslation();
+
+  // Projects data with translations
+  const projects: Project[] = [
+    {
+      id: 1,
+      title: t('projects.items.ecommerce.title'),
+      description: t('projects.items.ecommerce.description'),
+      image: "/projects/ecommerce.jpg",
+      technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Stripe"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://demo-ecommerce.com",
+      category: "Frontend"
+    },
+    {
+      id: 2,
+      title: t('projects.items.api.title'),
+      description: t('projects.items.api.description'),
+      image: "/projects/api-saas.jpg",
+      technologies: ["C#", ".NET Core", "PostgreSQL", "Redis", "Docker"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://api-saas-demo.com",
+      category: "Backend"
+    },
+    {
+      id: 3,
+      title: t('projects.items.dashboard.title'),
+      description: t('projects.items.dashboard.description'),
+      image: "/projects/dashboard.jpg",
+      technologies: ["Vue.js", "Chart.js", "PHP", "MySQL", "WebSockets"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://dashboard-demo.com",
+      category: "Frontend"
+    },
+    {
+      id: 4,
+      title: t('projects.items.automation.title'),
+      description: t('projects.items.automation.description'),
+      image: "/projects/automation.jpg",
+      technologies: ["n8n", "Node.js", "MongoDB", "AWS", "Docker"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://automation-demo.com",
+      category: "Automation"
+    },
+    {
+      id: 5,
+      title: t('projects.items.crm.title'),
+      description: t('projects.items.crm.description'),
+      image: "/projects/crm.jpg",
+      technologies: ["React", "PHP", "Laravel", "MySQL", "Redis"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://crm-demo.com",
+      category: "SaaS"
+    },
+    {
+      id: 6,
+      title: t('projects.items.chatbot.title'),
+      description: t('projects.items.chatbot.description'),
+      image: "/projects/chatbot.jpg",
+      technologies: ["Python", "FastAPI", "OpenAI", "React", "WebSockets"],
+      githubUrl: "https://github.com/joaomatheus",
+      liveUrl: "https://chatbot-demo.com",
+      category: "SaaS"
+    }
+  ];
   return (
     <section id="projects" className="py-24 bg-gradient-to-b from-dark via-darker to-dark relative overflow-hidden">
       {/* Background effects */}
@@ -104,10 +109,10 @@ export default function Projects() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              Meus <span className="text-primary text-glow-cyan">Projetos</span>
+              {t('projects.title')} <span className="text-primary text-glow-cyan">{t('projects.titleHighlight')}</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Uma seleção dos meus trabalhos mais recentes, demonstrando expertise em diferentes tecnologias e domínios.
+              {t('projects.subtitle')}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6"></div>
           </motion.div>
@@ -202,7 +207,7 @@ export default function Projects() {
                       className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-white/5 hover:bg-white/10 rounded-lg transition-colors duration-200 text-sm"
                     >
                       <Github className="w-4 h-4" />
-                      Código
+                      {t('projects.code')}
                     </a>
                     <a
                       href={project.liveUrl}
@@ -211,7 +216,7 @@ export default function Projects() {
                       className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-primary/10 hover:bg-primary/20 text-primary rounded-lg transition-colors duration-200 text-sm"
                     >
                       <Eye className="w-4 h-4" />
-                      Demo
+                      {t('projects.demo')}
                     </a>
                   </div>
                 </div>
@@ -238,7 +243,7 @@ export default function Projects() {
               className="inline-flex items-center gap-3 px-8 py-4 glass rounded-lg font-semibold text-white hover:glow-cyan transition-all duration-300 border border-primary/30 hover:border-primary/60"
             >
               <Github className="w-5 h-5" />
-              Ver Todos no GitHub
+              {t('projects.viewAll')}
               <ExternalLink className="w-4 h-4" />
             </a>
           </motion.div>

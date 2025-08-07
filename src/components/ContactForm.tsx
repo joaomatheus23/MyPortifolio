@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Mail, Github, Linkedin, MessageCircle, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useTranslation } from 'react-i18next';
 
 interface FormData {
   name: string;
@@ -17,6 +18,8 @@ interface FormStatus {
 }
 
 export default function ContactForm() {
+  const { t } = useTranslation();
+  
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -138,10 +141,10 @@ export default function ContactForm() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              Entre em <span className="text-primary text-glow-cyan">Contato</span>
+              {t('contact.title')} <span className="text-primary text-glow-cyan">{t('contact.titleHighlight')}</span>
             </h2>
             <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Vamos conversar sobre seu próximo projeto? Estou sempre aberto a novas oportunidades e desafios interessantes.
+              {t('contact.subtitle')}
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6"></div>
           </motion.div>
@@ -155,14 +158,14 @@ export default function ContactForm() {
               className="glass rounded-2xl p-8 border border-white/10"
             >
               <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Envie uma Mensagem
+                {t('contact.form.title')}
               </h3>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Name field */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Nome
+                    {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
@@ -171,7 +174,7 @@ export default function ContactForm() {
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300"
-                    placeholder="Seu nome completo"
+                    placeholder={t('contact.form.namePlaceholder')}
                     required
                   />
                 </div>
@@ -179,7 +182,7 @@ export default function ContactForm() {
                 {/* Email field */}
                 <div>
                   <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
@@ -188,7 +191,7 @@ export default function ContactForm() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300"
-                    placeholder="Digite seu email"
+                    placeholder={t('contact.form.emailPlaceholder')}
                     required
                   />
                 </div>
@@ -196,7 +199,7 @@ export default function ContactForm() {
                 {/* Message field */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
-                    Mensagem
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     id="message"
@@ -205,7 +208,7 @@ export default function ContactForm() {
                     onChange={handleInputChange}
                     rows={5}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300 resize-none"
-                    placeholder="Descreva seu projeto ou como posso ajudar..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                     required
                   ></textarea>
                 </div>
@@ -246,7 +249,7 @@ export default function ContactForm() {
                   ) : (
                     <>
                       <Send className="w-5 h-5" />
-                      Enviar Mensagem
+                      {t('contact.form.send')}
                     </>
                   )}
                 </motion.button>
@@ -263,12 +266,10 @@ export default function ContactForm() {
               {/* Contact info */}
               <div className="glass rounded-2xl p-8 border border-white/10">
                 <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  Vamos Conectar
+                  {t('contact.connect.title')}
                 </h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Estou sempre interessado em novos projetos desafiadores e oportunidades de colaboração. 
-                  Seja para desenvolvimento de aplicações web, automações ou consultoria técnica, 
-                  ficarei feliz em conversar sobre como posso ajudar.
+                  {t('contact.connect.description')}
                 </p>
                 
                 <div className="space-y-4">
@@ -286,7 +287,7 @@ export default function ContactForm() {
               {/* Social links */}
               <div className="glass rounded-2xl p-8 border border-white/10">
                 <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  Redes Sociais
+                  {t('contact.social.title')}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {socialLinks.map((social, index) => (
@@ -311,15 +312,14 @@ export default function ContactForm() {
               {/* Additional info */}
               <div className="glass rounded-2xl p-8 border border-primary/20">
                 <h3 className="text-xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  Disponibilidade
+                  {t('contact.availability.title')}
                 </h3>
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
-                  <span className="text-accent font-semibold">Disponível para novos projetos</span>
+                  <span className="text-accent font-semibold">{t('contact.availability.status')}</span>
                 </div>
                 <p className="text-gray-300 text-sm">
-                  Respondo normalmente em até 24 horas. Para projetos urgentes, 
-                  entre em contato via WhatsApp.
+                  {t('contact.availability.description')}
                 </p>
               </div>
             </motion.div>

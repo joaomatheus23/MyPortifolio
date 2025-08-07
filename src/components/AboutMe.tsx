@@ -2,8 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Code, Database, Zap } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function AboutMe() {
+  const { t } = useTranslation();
   return (
     <section id="about" className="py-24 bg-gradient-to-b from-darker via-dark to-darker relative overflow-hidden">
       {/* Background effects */}
@@ -22,7 +24,7 @@ export default function AboutMe() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              Sobre <span className="text-primary text-glow-cyan">Mim</span>
+              {t('about.title')} <span className="text-primary text-glow-cyan">{t('about.titleHighlight')}</span>
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
           </motion.div>
@@ -36,43 +38,42 @@ export default function AboutMe() {
               className="space-y-6"
             >
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                Desenvolvedor Full Stack
+                {t('about.subtitle')}
               </h3>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                Sou um desenvolvedor apaixonado por tecnologia com mais de{' '}
-                <span className="text-primary font-semibold">3 anos de experiência</span>{' '}
-                criando soluções digitais inovadoras. Especializado em desenvolvimento{' '}
-                <span className="text-secondary font-semibold">frontend</span> e{' '}
-                <span className="text-accent font-semibold">backend</span>, transformo ideias complexas em aplicações elegantes e funcionais.
+                {t('about.description1')}{' '}
+                <span className="text-primary font-semibold">{t('about.experience')}</span>{' '}
+                {t('about.description2')}{' '}
+                <span className="text-secondary font-semibold">{t('about.frontend')}</span> {t('about.and')}{' '}
+                <span className="text-accent font-semibold">{t('about.backend')}</span>{t('about.description3')}
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                Minha jornada no desenvolvimento me levou a trabalhar com tecnologias modernas como{' '}
-                <span className="text-primary">React</span>, <span className="text-primary">Vue.js</span> no frontend, 
-                e <span className="text-secondary">PHP</span>, <span className="text-secondary">C#</span> no backend. 
-                Também tenho experiência em <span className="text-accent">automações com n8n</span> e{' '}
-                <span className="text-accent">criação de SaaS</span>.
+                {t('about.description4')}{' '}
+                <span className="text-primary">React</span>, <span className="text-primary">Vue.js</span> {t('about.description5')}{' '}
+                <span className="text-secondary">PHP</span>, <span className="text-secondary">C#</span> {t('about.description6')}{' '}
+                <span className="text-accent">{t('about.automations')}</span> {t('about.and')}{' '}
+                <span className="text-accent">{t('about.saas')}</span>.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                Sempre busco estar atualizado com as últimas tendências e melhores práticas do desenvolvimento, 
-                focando em criar experiências de usuário excepcionais e código limpo, escalável e maintível.
+                {t('about.description7')}
               </p>
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-gray-700">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-primary mb-2">3+</div>
-                  <div className="text-sm text-gray-400 font-mono">Anos de Experiência</div>
+                  <div className="text-sm text-gray-400 font-mono">{t('about.stats.years')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-secondary mb-2">50+</div>
-                  <div className="text-sm text-gray-400 font-mono">Projetos Concluídos</div>
+                  <div className="text-sm text-gray-400 font-mono">{t('about.stats.projects')}</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-accent mb-2">10+</div>
-                  <div className="text-sm text-gray-400 font-mono">Tecnologias</div>
+                  <div className="text-sm text-gray-400 font-mono">{t('about.stats.technologies')}</div>
                 </div>
               </div>
             </motion.div>
@@ -93,10 +94,10 @@ export default function AboutMe() {
                   <div className="p-3 bg-primary/10 rounded-lg mr-4">
                     <Code className="w-6 h-6 text-primary" />
                   </div>
-                  <h4 className="text-xl font-bold text-white">Frontend</h4>
+                  <h4 className="text-xl font-bold text-white">{t('about.cards.frontend.title')}</h4>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  Criação de interfaces modernas e responsivas com foco na experiência do usuário.
+                  {t('about.cards.frontend.description')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['React', 'Vue.js', 'TypeScript', 'TailwindCSS', 'Next.js'].map((tech) => (
@@ -119,10 +120,10 @@ export default function AboutMe() {
                   <div className="p-3 bg-secondary/10 rounded-lg mr-4">
                     <Database className="w-6 h-6 text-secondary" />
                   </div>
-                  <h4 className="text-xl font-bold text-white">Backend</h4>
+                  <h4 className="text-xl font-bold text-white">{t('about.cards.backend.title')}</h4>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  Desenvolvimento de APIs robustas e arquiteturas escaláveis.
+                  {t('about.cards.backend.description')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['PHP', 'C#', 'Node.js', 'MySQL', 'PostgreSQL'].map((tech) => (
@@ -145,10 +146,10 @@ export default function AboutMe() {
                   <div className="p-3 bg-accent/10 rounded-lg mr-4">
                     <Zap className="w-6 h-6 text-accent" />
                   </div>
-                  <h4 className="text-xl font-bold text-white">Automação & SaaS</h4>
+                  <h4 className="text-xl font-bold text-white">{t('about.cards.automation.title')}</h4>
                 </div>
                 <p className="text-gray-300 mb-4">
-                  Automações inteligentes e desenvolvimento de soluções SaaS completas.
+                  {t('about.cards.automation.description')}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {['n8n', 'Zapier', 'SaaS', 'APIs', 'DevOps'].map((tech) => (

@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "portfolio": "Portfolio",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello World, I'm",
+    "name": "João",
+    "fullName": "Matheus Marques",
+    "tagline": "Transforming ideas into code and experiences into solutions",
+    "aboutBtn": "About Me",
+    "projectsBtn": "View Projects",
+    "scrollDown": "scroll down"
+  },
+  "about": {
+    "title": "About",
+    "titleHighlight": "Me",
+    "subtitle": "Full Stack Developer",
+    "description1": "I'm a technology-passionate developer with over",
+    "experience": "3 years of experience",
+    "description2": "creating innovative digital solutions. Specialized in",
+    "frontend": "frontend",
+    "and": "and",
+    "backend": "backend",
+    "description3": "development, I transform complex ideas into elegant and functional applications.",
+    "description4": "My development journey has led me to work with modern technologies like",
+    "description5": "on the frontend, and",
+    "description6": "on the backend. I also have experience in",
+    "automations": "n8n automations",
+    "saas": "SaaS creation",
+    "description7": "I always seek to stay updated with the latest trends and best practices in development, focusing on creating exceptional user experiences and clean, scalable, and maintainable code.",
+    "stats": {
+      "years": "Years of Experience",
+      "projects": "Completed Projects",
+      "technologies": "Technologies"
+    },
+    "cards": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "Creating modern and responsive interfaces focused on user experience."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Development of robust APIs and scalable architectures."
+      },
+      "automation": {
+        "title": "Automation & SaaS",
+        "description": "Smart automations and complete SaaS solutions development."
+      }
+    }
+  },
+  "projects": {
+    "title": "My",
+    "titleHighlight": "Projects",
+    "subtitle": "A selection of my most recent work, demonstrating expertise in different technologies and domains.",
+    "viewAll": "View All on GitHub",
+    "code": "Code",
+    "demo": "Demo",
+    "items": {
+      "ecommerce": {
+        "title": "Futuristic E-commerce",
+        "description": "Complete e-commerce platform with futuristic interface, integrated payment system and advanced admin panel."
+      },
+      "api": {
+        "title": "SaaS API Manager",
+        "description": "Robust API for SaaS management with JWT authentication, rate limiting and real-time monitoring."
+      },
+      "dashboard": {
+        "title": "Analytics Dashboard",
+        "description": "Interactive dashboard for data analysis with real-time charts and customizable reports."
+      },
+      "automation": {
+        "title": "Automation Hub",
+        "description": "No-code automation platform connecting multiple APIs and services to optimize business workflows."
+      },
+      "crm": {
+        "title": "Social CRM",
+        "description": "CRM system with social media integration, marketing automation and advanced analytics for small businesses."
+      },
+      "chatbot": {
+        "title": "AI Chat Assistant",
+        "description": "Intelligent chat assistant with AI for automated customer service and continuous learning."
+      }
+    }
+  },
+  "skills": {
+    "title": "My",
+    "titleHighlight": "Skills",
+    "subtitle": "Technologies and tools I master to create complete and efficient solutions.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Cloud"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "alwaysLearning": {
+      "title": "Always Learning",
+      "description": "Technology evolves constantly, and I stay updated with the latest trends and best practices. I'm always exploring new tools and frameworks to offer the best possible solutions."
+    }
+  },
+  "contact": {
+    "title": "Get In",
+    "titleHighlight": "Touch",
+    "subtitle": "Let's talk about your next project? I'm always open to new opportunities and interesting challenges.",
+    "form": {
+      "title": "Send a Message",
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "message": "Message",
+      "messagePlaceholder": "Describe your project or how I can help...",
+      "send": "Send Message"
+    },
+    "connect": {
+      "title": "Let's Connect",
+      "description": "I'm always interested in challenging new projects and collaboration opportunities. Whether for web application development, automations or technical consulting, I'll be happy to talk about how I can help.",
+      "email": "joaomatheus@email.com",
+      "phone": "+55 (11) 99999-9999"
+    },
+    "social": {
+      "title": "Social Media"
+    },
+    "availability": {
+      "title": "Availability",
+      "status": "Available for new projects",
+      "description": "I usually respond within 24 hours. For urgent projects, contact me via WhatsApp."
+    }
+  },
+  "footer": {
+    "description": "Full Stack Developer passionate about creating innovative digital solutions. Transforming ideas into code and experiences into solutions since 2021.",
+    "madeWith": "Made with",
+    "coffee": "and lots of coffee ☕",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "rights": "All rights reserved.",
+    "techStack": "Built with Next.js, TailwindCSS & Framer Motion"
+  }
+}

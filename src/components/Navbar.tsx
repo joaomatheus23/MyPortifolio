@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './LanguageSwitcher';
 
 interface NavbarProps {
   isDarkMode: boolean;
@@ -12,13 +14,14 @@ interface NavbarProps {
 export default function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useTranslation();
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Portfolio', href: '#projects' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Contact', href: '#contact' }
+    { name: t('nav.home'), href: '#home' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.portfolio'), href: '#projects' },
+    { name: t('nav.skills'), href: '#skills' },
+    { name: t('nav.contact'), href: '#contact' }
   ];
 
   useEffect(() => {
@@ -84,8 +87,11 @@ export default function Navbar({ isDarkMode, toggleTheme }: NavbarProps) {
               ))}
             </div>
 
-            {/* Theme toggle and mobile menu */}
+            {/* Theme toggle, language switcher and mobile menu */}
             <div className="flex items-center space-x-4">
+              {/* Language Switcher */}
+              <LanguageSwitcher />
+              
               {/* Theme toggle */}
               <motion.button
                 whileHover={{ scale: 1.1 }}

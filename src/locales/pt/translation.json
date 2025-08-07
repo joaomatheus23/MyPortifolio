@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Sobre",
+    "portfolio": "Portfolio",
+    "skills": "Skills",
+    "contact": "Contato"
+  },
+  "hero": {
+    "greeting": "Hello World, I'm",
+    "name": "João",
+    "fullName": "Matheus Marques",
+    "tagline": "Transformando ideias em código e experiências em soluções",
+    "aboutBtn": "Sobre Mim",
+    "projectsBtn": "Ver Projetos",
+    "scrollDown": "scroll down"
+  },
+  "about": {
+    "title": "Sobre",
+    "titleHighlight": "Mim",
+    "subtitle": "Desenvolvedor Full Stack",
+    "description1": "Sou um desenvolvedor apaixonado por tecnologia com mais de",
+    "experience": "3 anos de experiência",
+    "description2": "criando soluções digitais inovadoras. Especializado em desenvolvimento",
+    "frontend": "frontend",
+    "and": "e",
+    "backend": "backend",
+    "description3": ", transformo ideias complexas em aplicações elegantes e funcionais.",
+    "description4": "Minha jornada no desenvolvimento me levou a trabalhar com tecnologias modernas como",
+    "description5": "no frontend, e",
+    "description6": "no backend. Também tenho experiência em",
+    "automations": "automações com n8n",
+    "saas": "criação de SaaS",
+    "description7": "Sempre busco estar atualizado com as últimas tendências e melhores práticas do desenvolvimento, focando em criar experiências de usuário excepcionais e código limpo, escalável e maintível.",
+    "stats": {
+      "years": "Anos de Experiência",
+      "projects": "Projetos Concluídos",
+      "technologies": "Tecnologias"
+    },
+    "cards": {
+      "frontend": {
+        "title": "Frontend",
+        "description": "Criação de interfaces modernas e responsivas com foco na experiência do usuário."
+      },
+      "backend": {
+        "title": "Backend",
+        "description": "Desenvolvimento de APIs robustas e arquiteturas escaláveis."
+      },
+      "automation": {
+        "title": "Automação & SaaS",
+        "description": "Automações inteligentes e desenvolvimento de soluções SaaS completas."
+      }
+    }
+  },
+  "projects": {
+    "title": "Meus",
+    "titleHighlight": "Projetos",
+    "subtitle": "Uma seleção dos meus trabalhos mais recentes, demonstrando expertise em diferentes tecnologias e domínios.",
+    "viewAll": "Ver Todos no GitHub",
+    "code": "Código",
+    "demo": "Demo",
+    "items": {
+      "ecommerce": {
+        "title": "E-commerce Futurista",
+        "description": "Plataforma de e-commerce completa com interface futurista, sistema de pagamentos integrado e painel administrativo avançado."
+      },
+      "api": {
+        "title": "API SaaS Manager",
+        "description": "API robusta para gerenciamento de SaaS com autenticação JWT, rate limiting e monitoramento em tempo real."
+      },
+      "dashboard": {
+        "title": "Dashboard Analytics",
+        "description": "Dashboard interativo para análise de dados com gráficos em tempo real e relatórios personalizáveis."
+      },
+      "automation": {
+        "title": "Automation Hub",
+        "description": "Plataforma de automação no-code conectando múltiplas APIs e serviços para otimizar workflows empresariais."
+      },
+      "crm": {
+        "title": "CRM Social",
+        "description": "Sistema CRM com integração social media, automação de marketing e analytics avançado para pequenas empresas."
+      },
+      "chatbot": {
+        "title": "AI Chat Assistant",
+        "description": "Assistente de chat inteligente com IA para atendimento ao cliente automatizado e aprendizado contínuo."
+      }
+    }
+  },
+  "skills": {
+    "title": "Minhas",
+    "titleHighlight": "Skills",
+    "subtitle": "Tecnologias e ferramentas que domino para criar soluções completas e eficientes.",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Cloud"
+    },
+    "levels": {
+      "beginner": "Iniciante",
+      "intermediate": "Intermediário",
+      "advanced": "Avançado"
+    },
+    "alwaysLearning": {
+      "title": "Sempre Aprendendo",
+      "description": "A tecnologia evolui constantemente, e eu me mantenho atualizado com as últimas tendências e melhores práticas. Estou sempre explorando novas ferramentas e frameworks para oferecer as melhores soluções possíveis."
+    }
+  },
+  "contact": {
+    "title": "Entre em",
+    "titleHighlight": "Contato",
+    "subtitle": "Vamos conversar sobre seu próximo projeto? Estou sempre aberto a novas oportunidades e desafios interessantes.",
+    "form": {
+      "title": "Envie uma Mensagem",
+      "name": "Nome",
+      "namePlaceholder": "Seu nome completo",
+      "email": "Email",
+      "emailPlaceholder": "seu@email.com",
+      "message": "Mensagem",
+      "messagePlaceholder": "Descreva seu projeto ou como posso ajudar...",
+      "send": "Enviar Mensagem"
+    },
+    "connect": {
+      "title": "Vamos Conectar",
+      "description": "Estou sempre interessado em novos projetos desafiadores e oportunidades de colaboração. Seja para desenvolvimento de aplicações web, automações ou consultoria técnica, ficarei feliz em conversar sobre como posso ajudar.",
+      "email": "joaomatheus@email.com",
+      "phone": "+55 (11) 99999-9999"
+    },
+    "social": {
+      "title": "Redes Sociais"
+    },
+    "availability": {
+      "title": "Disponibilidade",
+      "status": "Disponível para novos projetos",
+      "description": "Respondo normalmente em até 24 horas. Para projetos urgentes, entre em contato via WhatsApp."
+    }
+  },
+  "footer": {
+    "description": "Desenvolvedor Full Stack apaixonado por criar soluções digitais inovadoras. Transformando ideias em código e experiências em soluções desde 2021.",
+    "madeWith": "Feito com",
+    "coffee": "e muito café ☕",
+    "quickLinks": "Links Rápidos",
+    "contact": "Contato",
+    "rights": "Todos os direitos reservados.",
+    "techStack": "Desenvolvido com Next.js, TailwindCSS & Framer Motion"
+  }
+}

@@ -8,6 +8,7 @@ import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import ClientI18nProvider from '@/components/ClientI18nProvider';
 
 export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -19,21 +20,23 @@ export default function Home() {
   };
 
   return (
-    <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
-      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
-      
-      <main>
-        <section id="home">
-          <HeroSection />
-        </section>
+    <ClientI18nProvider>
+      <div className={`min-h-screen ${isDarkMode ? 'dark' : ''}`}>
+        <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
         
-        <AboutMe />
-        <Projects />
-        <Skills />
-        <ContactForm />
-      </main>
-      
-      <Footer />
-    </div>
+        <main>
+          <section id="home">
+            <HeroSection />
+          </section>
+          
+          <AboutMe />
+          <Projects />
+          <Skills />
+          <ContactForm />
+        </main>
+        
+        <Footer />
+      </div>
+    </ClientI18nProvider>
   );
 }
