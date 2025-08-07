@@ -12,7 +12,7 @@ interface Project {
   technologies: string[];
   githubUrl: string;
   liveUrl: string;
-  category: 'Frontend' | 'Backend' | 'SaaS' | 'Automation';
+  category: 'Frontend' | 'Backend' | 'SaaS' | 'Automation' | 'Fullstack' | 'Backend and Automation';
 }
 
 
@@ -42,52 +42,52 @@ export default function Projects() {
     {
       id: 2,
       title: t('Estoka.ai'),
-      description: t('MVP de Crm integrado com Ia, controle de estoque, rotas de caminhões, financeiro e muito mais!'),
+      description: t('Crm integrado com Ia, controle de estoque, rotas de caminhões, financeiro e muito mais!'),
       image: "/img/capaproject2.jpeg",
       technologies: ["React.js", "TypeScript", "Mysql", "Node.js", "TailwindCSS"],
-      githubUrl: "https://github.com/Estoka-ai/Estoka.ai",
+      githubUrl: "https://github.com/StockInvesting/app-stocks",
       liveUrl: "https://estoka-46s2ayozv-joaomatheus23s-projects.vercel.app/",
-      category: "Backend"
+      category: "Fullstack"
     },
     {
       id: 3,
-      title: t('projects.items.dashboard.title'),
-      description: t('projects.items.dashboard.description'),
-      image: "/projects/dashboard.jpg",
-      technologies: ["Vue.js", "Chart.js", "PHP", "MySQL", "WebSockets"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://dashboard-demo.com",
-      category: "Frontend"
+      title: t('Stock Investing'),
+      description: t('MVP de um site de investimentos em ações'),
+      image: "/img/capaproject3.jpeg",
+      technologies: ["Vue.js", "Chart.js", "Node.js", "MySQL", "Api Restufull"],
+      githubUrl: "https://github.com/StockInvesting/app-stocks",
+      liveUrl: "https://stockinvesting-nm7cc3y9f-joaomatheus23s-projects.vercel.app/dashboard",
+      category: "Fullstack"
     },
     {
       id: 4,
-      title: t('projects.items.automation.title'),
-      description: t('projects.items.automation.description'),
-      image: "/projects/automation.jpg",
-      technologies: ["n8n", "Node.js", "MongoDB", "AWS", "Docker"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://automation-demo.com",
-      category: "Automation"
+      title: t('Busca Cep'),
+      description: t('Api para busca de cep em C#'),
+      image: "/img/projectbackend.jpeg",
+      technologies: ["C#", ".NET"],
+      githubUrl: "https://github.com/joaomatheus23/ApiBuscaCep",
+      liveUrl: "https://github.com/joaomatheus23/ApiBuscaCep",
+      category: "Backend"
     },
     {
       id: 5,
-      title: t('projects.items.crm.title'),
-      description: t('projects.items.crm.description'),
-      image: "/projects/crm.jpg",
-      technologies: ["React", "PHP", "Laravel", "MySQL", "Redis"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://crm-demo.com",
-      category: "SaaS"
+      title: t('CRUD'),
+      description: t('Crud para controle de compras, com autenticação e controle de acesso, rotas protegidas, validação de dados, e muito mais!'),
+      image: "/img/projectbackend.jpeg",
+      technologies: ["Laravel", "Sawagger","MySQL"],
+      githubUrl: "https://github.com/joaomatheus23/crudLaravel",
+      liveUrl: "https://github.com/joaomatheus23/crudLaravel",
+      category: "Backend"
     },
     {
       id: 6,
-      title: t('projects.items.chatbot.title'),
-      description: t('projects.items.chatbot.description'),
-      image: "/projects/chatbot.jpg",
-      technologies: ["Python", "FastAPI", "OpenAI", "React", "WebSockets"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://chatbot-demo.com",
-      category: "SaaS"
+      title: t('Corte de audio com Ia'),
+      description: t('Script para cortar seus audios com Ia, automatico e com qualidade!'),
+      image: "/img/projectbackend.jpeg",
+      technologies: ["Python", "FastAPI", "OpenAI"],
+      githubUrl: "https://github.com/joaomatheus23/picotaraudiogrande",
+      liveUrl: "https://github.com/joaomatheus23/picotaraudiogrande",
+      category: "Backend and Automation"
     }
   ];
   return (
@@ -251,7 +251,7 @@ export default function Projects() {
             className="text-center mt-12"
           >
             <a
-              href="https://github.com/joaomatheus"
+              href="https://github.com/joaomatheus23"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 glass rounded-lg font-semibold text-white hover:glow-cyan transition-all duration-300 border border-primary/30 hover:border-primary/60"

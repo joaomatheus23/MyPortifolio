@@ -64,11 +64,11 @@ export default function AboutMe() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-6 mt-8 pt-8 border-t border-gray-700">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-2">3+</div>
+                  <div className="text-3xl font-bold text-primary mb-2">2+</div>
                   <div className="text-sm text-gray-400 font-mono">{t('about.stats.years')}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary mb-2">50+</div>
+                  <div className="text-3xl font-bold text-secondary mb-2">10+</div>
                   <div className="text-sm text-gray-400 font-mono">{t('about.stats.projects')}</div>
                 </div>
                 <div className="text-center">
