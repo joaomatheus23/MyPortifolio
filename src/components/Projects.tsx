@@ -41,12 +41,12 @@ export default function Projects() {
     },
     {
       id: 2,
-      title: t('projects.items.api.title'),
-      description: t('projects.items.api.description'),
-      image: "/projects/api-saas.jpg",
-      technologies: ["C#", ".NET Core", "PostgreSQL", "Redis", "Docker"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://api-saas-demo.com",
+      title: t('Estoka.ai'),
+      description: t('MVP de Crm integrado com Ia, controle de estoque, rotas de caminhões, financeiro e muito mais!'),
+      image: "/img/capaproject2.jpeg",
+      technologies: ["React.js", "TypeScript", "Mysql", "Node.js", "TailwindCSS"],
+      githubUrl: "https://github.com/Estoka-ai/Estoka.ai",
+      liveUrl: "https://estoka-46s2ayozv-joaomatheus23s-projects.vercel.app/",
       category: "Backend"
     },
     {
