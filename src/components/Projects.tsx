@@ -31,12 +31,12 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: 1,
-      title: t('projects.items.ecommerce.title'),
-      description: t('projects.items.ecommerce.description'),
-      image: "/projects/ecommerce.jpg",
-      technologies: ["React", "Next.js", "TypeScript", "TailwindCSS", "Stripe"],
-      githubUrl: "https://github.com/joaomatheus",
-      liveUrl: "https://demo-ecommerce.com",
+      title: t('Netflix Clone'),
+      description: t('Clone da interface do Netflix'),
+      image: "/img/capaproject1.jpeg",
+      technologies: ["React", "Next.js", "TypeScript", "TailwindCSS"],
+      githubUrl: "https://github.com/joaomatheus23/netflixclone",
+      liveUrl: "https://netflixclone-22xn1l06k-joaomatheus23s-projects.vercel.app/",
       category: "Frontend"
     },
     {
@@ -133,15 +133,29 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/10 to-accent/20"></div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                   
-                  {/* Placeholder gradient instead of image */}
-                  <div className="w-full h-full bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 flex items-center justify-center">
-                    <div className="text-6xl opacity-30">
-                      {project.category === 'Frontend' && '🖥️'}
-                      {project.category === 'Backend' && '⚙️'}
-                      {project.category === 'SaaS' && '☁️'}
-                      {project.category === 'Automation' && '🤖'}
+                  {/* Real image or placeholder */}
+                  {project.image && project.image !== "/img/capaproject1.jpeg" ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : project.image === "/img/capaproject1.jpeg" ? (
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary/30 via-secondary/20 to-accent/30 flex items-center justify-center">
+                      <div className="text-6xl opacity-30">
+                        {project.category === 'Frontend' && '🖥️'}
+                        {project.category === 'Backend' && '⚙️'}
+                        {project.category === 'SaaS' && '☁️'}
+                        {project.category === 'Automation' && '🤖'}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* Overlay with links */}
                   <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
