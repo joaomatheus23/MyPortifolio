@@ -1,3 +1,28 @@
+# Portfolio JM
+
+Portfolio pessoal desenvolvido com Next.js, TypeScript e TailwindCSS.
+
+## Features
+
+- Design responsivo
+- Animações suaves
+- Seção de projetos
+- Seção de habilidades
+- Seção de educação
+- Suporte a múltiplos idiomas (PT/EN)
+
+## Tecnologias
+
+- Next.js 15
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- React i18next
+
+## Deploy
+
+Deploy automático via Vercel - última atualização: 07/08/2024
+
 # 🚀 Portfólio Futurista - João Matheus
 
 Um portfólio moderno e futurista para desenvolvedor Full Stack, criado com Next.js, TailwindCSS e Framer Motion.
