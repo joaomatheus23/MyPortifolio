@@ -35,6 +35,8 @@ export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
   const navItems = [
     { name: isI18nReady ? t('nav.home') : 'Home', href: '#home' },
     { name: isI18nReady ? t('nav.about') : 'About', href: '#about' },
+    { name: isI18nReady ? t('nav.experience') : 'Experience', href: '#experience' },
+    { name: isI18nReady ? t('nav.cyber') : 'Cyber', href: '#cyber' },
     { name: isI18nReady ? t('nav.education') : 'Education', href: '#education' },
     { name: isI18nReady ? t('nav.portfolio') : 'Portfolio', href: '#projects' },
     { name: isI18nReady ? t('nav.skills') : 'Skills', href: '#skills' },
@@ -88,7 +90,7 @@ export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-5">
               {navItems.map((item, index) => (
                 <motion.button
                   key={item.name}
@@ -114,7 +116,7 @@ export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg glass border border-white/10 hover:border-primary/30 transition-all duration-300"
+                className="lg:hidden p-2 rounded-lg glass border border-white/10 hover:border-primary/30 transition-all duration-300"
               >
                 {isMobileMenuOpen ? (
                   <X className="w-6 h-6 text-white" />
@@ -135,7 +137,7 @@ export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
           x: isMobileMenuOpen ? '0%' : '100%'
         }}
         transition={{ duration: 0.3 }}
-        className={`fixed top-0 right-0 h-full w-80 bg-dark/95 backdrop-blur-lg border-l border-white/10 z-40 md:hidden ${
+        className={`fixed top-0 right-0 h-full w-80 bg-dark/95 backdrop-blur-lg border-l border-white/10 z-40 lg:hidden ${
           isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'
         }`}
       >
@@ -196,7 +198,7 @@ export default function Navbar({ isDarkMode: _isDarkMode }: NavbarProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={() => setIsMobileMenuOpen(false)}
-          className="fixed inset-0 bg-black/50 z-30 md:hidden"
+          className="fixed inset-0 bg-black/50 z-30 lg:hidden"
         />
       )}
     </>

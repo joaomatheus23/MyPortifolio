@@ -3,6 +3,9 @@
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import AboutMe from '@/components/AboutMe';
+import Experience from '@/components/Experience';
+import CyberLab from '@/components/CyberLab';
+import CanadaSection from '@/components/CanadaSection';
 import Education from '@/components/Education';
 import Projects from '@/components/Projects';
 import Skills from '@/components/Skills';
@@ -22,6 +25,9 @@ export default function Home() {
           </section>
           
           <AboutMe />
+          <Experience />
+          <CyberLab />
+          <CanadaSection />
           <Education />
           <Projects />
           <Skills />

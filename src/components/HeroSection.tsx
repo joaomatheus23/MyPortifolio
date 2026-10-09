@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import Image from 'next/image';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 // Hook customizado para animação de typewriter com reset
@@ -43,6 +43,85 @@ const useTypewriter = (text: string, delay: number = 0, speed: number = 100, res
 
   return { displayedText, isTyping, isComplete };
 };
+
+type ScriptLine = { prompt: boolean; text: string };
+
+function HeroTerminal({ ready }: { ready: boolean }) {
+  const { t } = useTranslation();
+  const lines = useMemo<ScriptLine[]>(() => [
+    { prompt: true, text: ready ? t('hero.terminal.cmd1') : 'whoami' },
+    { prompt: false, text: ready ? t('hero.terminal.out1') : 'João Matheus Marques' },
+    { prompt: true, text: ready ? t('hero.terminal.cmd2') : 'focus --now' },
+    { prompt: false, text: ready ? t('hero.terminal.out2') : 'blockchain · fintechs · ripple' },
+    { prompt: true, text: ready ? t('hero.terminal.cmd3') : 'security --status' },
+    { prompt: false, text: ready ? t('hero.terminal.out3') : 'ativa em cada fluxo' },
+  ], [ready, t]);
+  const scriptKey = lines.map((line) => line.text).join('|');
+  const [lineIndex, setLineIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+
+  useEffect(() => {
+    setLineIndex(0);
+    setCharIndex(0);
+  }, [scriptKey]);
+
+  useEffect(() => {
+    if (lineIndex >= lines.length) return;
+    const current = lines[lineIndex].text;
+    if (charIndex < current.length) {
+      const timer = setTimeout(() => setCharIndex((index) => index + 1), lines[lineIndex].prompt ? 48 : 22);
+      return () => clearTimeout(timer);
+    }
+    const timer = setTimeout(() => {
+      setLineIndex((index) => index + 1);
+      setCharIndex(0);
+    }, 320);
+    return () => clearTimeout(timer);
+  }, [lineIndex, charIndex, lines]);
+
+  const finished = lineIndex >= lines.length;
+
+  return (
+    <div className="relative z-20 mx-auto mt-2 w-[min(100%,30rem)] overflow-hidden rounded-xl border border-primary/40 bg-[#070b12]/92 text-left shadow-[0_0_48px_rgba(0,212,255,0.22)] backdrop-blur-md lg:absolute lg:bottom-4 lg:left-0 lg:mx-0 lg:w-[32rem] lg:-translate-x-6">
+      <div className="flex items-center gap-2 border-b border-white/10 px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-red-400/90"></span>
+        <span className="h-2.5 w-2.5 rounded-full bg-yellow-300/90"></span>
+        <span className="h-2.5 w-2.5 rounded-full bg-accent"></span>
+        <span className="ml-2 font-mono text-xs text-gray-400">
+          {ready ? t('hero.terminalTitle') : 'joao@web3 — zsh'}
+        </span>
+      </div>
+      <div className="min-h-[11.5rem] space-y-1.5 px-4 py-4 font-mono text-sm leading-relaxed">
+        {lines.slice(0, finished ? lines.length : lineIndex + 1).map((line, index) => {
+          const shown = index < lineIndex ? line.text : line.text.slice(0, charIndex);
+          return (
+            <p key={`${line.text}-${index}`}>
+              {line.prompt ? (
+                <>
+                  <span className="text-accent">~/ledger</span>
+                  <span className="text-gray-500"> $ </span>
+                  <span className="text-primary">{shown}</span>
+                </>
+              ) : (
+                <span className="text-gray-200">{shown}</span>
+              )}
+              {!finished && index === lineIndex && (
+                <span className="ml-0.5 inline-block h-4 w-1.5 translate-y-0.5 bg-primary animate-pulse"></span>
+              )}
+            </p>
+          );
+        })}
+        {finished && (
+          <p>
+            <span className="text-accent">~/ledger</span>
+            <span className="text-gray-500"> $ </span>
+            <span className="inline-block h-4 w-1.5 translate-y-0.5 bg-primary animate-pulse"></span>
+          </p>
+        )}
+      </div>
+    </div>
+  );
+}
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -118,13 +197,13 @@ export default function HeroSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           {/* Left side - Text content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center lg:text-left"
+            className="text-center lg:text-left lg:col-span-5"
           >
             {/* Developer greeting */}
             <div className="mb-6 h-7 flex items-center">
@@ -180,9 +259,10 @@ export default function HeroSection() {
                 {tagline.displayedText.split(' ').map((word, index) => {
                   let className = "text-gray-400";
                   
-                  if (word.includes('ideias')) {
+                  const normalized = word.toLowerCase().replace(/[.,]/g, '');
+                  if (normalized.includes('blockchain') || normalized.includes('fintech')) {
                     className = "text-primary font-semibold";
-                  } else if (word.includes('experiências')) {
+                  } else if (normalized.includes('ripple') || normalized.includes('cibersegurança') || normalized.includes('cybersecurity') || normalized.includes('segurança') || normalized.includes('security')) {
                     className = "text-secondary font-semibold";
                   }
                   
@@ -228,50 +308,19 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="relative flex justify-center lg:justify-end"
+            className="relative flex justify-center lg:col-span-7 lg:justify-end"
           >
             <div className="relative">
-              {/* Glowing border effect */}
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-full opacity-20 blur-lg animate-pulse-glow"></div>
-              
-              {/* Profile image container */}
-              <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden glass border-2 border-primary/30">
-                <Image
-                  src="/profile.jpg"
-                  alt="João Matheus - Desenvolvedor Full Stack"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                
-                {/* Overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-secondary/20"></div>
-              </div>
-
-              {/* Floating tech icons */}
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute -top-8 -right-8 w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center glass"
-              >
-                <span className="text-primary font-mono font-bold">React</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-8 -left-8 w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center glass"
-              >
-                <span className="text-secondary font-mono font-bold">Next</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute top-1/2 -right-12 w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center glass"
-              >
-                <span className="text-accent font-mono text-sm font-bold">Node</span>
-              </motion.div>
+              <div className="pointer-events-none absolute inset-x-8 bottom-10 top-16 bg-primary/20 blur-3xl"></div>
+              <Image
+                src="/profile.png"
+                alt="João Matheus Marques - desenvolvedor Web3"
+                width={1024}
+                height={1024}
+                priority
+                className="relative h-auto w-[min(100%,34rem)] object-contain lg:h-[min(78vh,740px)] lg:w-auto lg:max-w-none"
+              />
+              <HeroTerminal ready={isI18nReady} />
             </div>
           </motion.div>
         </div>

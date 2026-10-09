@@ -2,61 +2,127 @@
   "nav": {
     "home": "Home",
     "about": "About",
+    "experience": "Experience",
+    "cyber": "Cyber",
+    "canada": "Canada",
     "education": "Education",
     "portfolio": "Portfolio",
     "skills": "Skills",
     "contact": "Contact"
   },
   "hero": {
-    "greeting": "Hello World, I'm",
+    "greeting": "Web3 Developer",
     "name": "João",
     "fullName": "Matheus Marques",
-    "tagline": "Transforming ideas into code and experiences into solutions",
+    "tagline": "Blockchain and fintechs on the Ripple ecosystem, with cybersecurity at the center of every application",
     "aboutBtn": "About Me",
     "projectsBtn": "View Projects",
-    "scrollDown": "scroll down"
+    "scrollDown": "scroll down",
+    "terminalTitle": "joao@web3 — zsh",
+    "terminal": {
+      "cmd1": "whoami",
+      "out1": "João Matheus Marques",
+      "cmd2": "focus --now",
+      "out2": "blockchain · fintechs · ripple",
+      "cmd3": "security --status",
+      "out3": "on for every flow"
+    }
   },
   "about": {
     "title": "About",
     "titleHighlight": "Me",
-    "subtitle": "Full Stack Developer",
-    "description1": "I'm a technology-passionate developer with over",
+    "kicker": "SPECIALIST DEVELOPER",
+    "subtitle": "Blockchain, fintechs, and cybersecurity",
+    "description1": "I am a specialist Web3 developer. I have more than",
     "experience": "2 years of experience",
-    "description2": "creating innovative digital solutions. Specialized in",
-    "frontend": "frontend",
+    "description2": "delivering digital products, and the center of my work today is",
+    "frontend": "blockchain",
     "and": "and",
-    "backend": "backend",
-    "description3": "development, I transform complex ideas into elegant and functional applications.",
-    "description4": "My development journey has led me to work with modern technologies like",
-    "description5": "on the frontend, and",
-    "description6": "on the backend. I also have experience in",
-    "automations": "n8n automations",
-    "saas": "SaaS creation",
-    "description7": "I always seek to stay updated with the latest trends and best practices in development, focusing on creating exceptional user experiences and clean, scalable, and maintainable code.",
+    "backend": "cybersecurity",
+    "description3": ", building applications on the Ripple ecosystem for fintechs that move value.",
+    "description4": "At Zuvia, I develop tokenization and digital-asset applications. The specialist delivery runs through",
+    "description5": "on the interface and",
+    "description6": "on the integration, with production code shaped for a financial product.",
+    "description7": "I went to Canada to study English and invest in my personal development. The immersion strengthened communication, autonomy, and my ability to work in international contexts. I am studying Computer Science, aiming for clean, scalable, and secure code.",
+    "focus": "in focus",
     "stats": {
       "years": "Years of Experience",
       "projects": "Completed Projects",
-      "technologies": "Technologies"
+      "technologies": "Areas of Practice"
     },
     "cards": {
       "frontend": {
-        "title": "Frontend",
-        "description": "Creating modern and responsive interfaces focused on user experience."
+        "title": "Blockchain and Ripple",
+        "description": "Applications on the Ripple ecosystem for blockchain products, tokenization, and digital assets.",
+        "tags": ["Ripple", "XRP Ledger", "Web3", "Tokenization"]
       },
       "backend": {
-        "title": "Backend",
-        "description": "Development of robust APIs and scalable architectures."
+        "title": "Fintechs",
+        "description": "Financial products at Zuvia: clear interfaces, integrations, and operations that need to protect value.",
+        "tags": ["Zuvia", "Fintech", "Digital assets", "Product"]
       },
       "automation": {
-        "title": "Automation & SaaS",
-        "description": "Smart automations and complete SaaS solutions development."
+        "title": "Cybersecurity",
+        "description": "Authentication, access control, validation, and protected routes as part of the application.",
+        "tags": ["Authentication", "Access", "Validation", "Secure code"]
       }
+    }
+  },
+  "cyber": {
+    "kicker": "SEC // CYBERSECURITY",
+    "title": "Experience in",
+    "titleHighlight": "cybersecurity",
+    "subtitle": "Cybersecurity applied to the product: pentest, reading the code, and development that already protects the flow.",
+    "badge": "SCAN",
+    "contained": "REVIEW COMPLETE",
+    "terminalTitle": "lab@sec — review",
+    "status": "applied experience",
+    "ticker": "CYBERSECURITY // PENTEST // CODE REVIEW // SECURE DEVELOPMENT //",
+    "cards": {
+      "pentest": {
+        "title": "Pentest",
+        "description": "I assess the application, record the fragile points, and make clear what needs attention."
+      },
+      "review": {
+        "title": "Code security analysis",
+        "description": "Exposed routes, flaws, and real bugs evidenced in the code, with the impact visible so they can be fixed."
+      },
+      "secure": {
+        "title": "Secure development",
+        "description": "The product starts with authentication, validation, and protected routes, instead of leaving the lock for the end."
+      }
+    },
+    "lines": {
+      "boot": "review security",
+      "bootOut": "experience in cybersecurity",
+      "danger1": "NOTE  exposed route in the flow",
+      "danger2": "NOTE  flaw evidenced in the code",
+      "danger3": "NOTE  real bug in the test",
+      "isolate": "document findings",
+      "isolateOut": "evidence recorded",
+      "lock": "secure build",
+      "lockOut": "secure development",
+      "ok": "REVIEW  analysis complete"
+    }
+  },
+  "experience": {
+    "title": "Professional",
+    "titleHighlight": "Experience",
+    "subtitle": "Where the focus on blockchain and fintechs shows up in practice.",
+    "company": "Zuvia",
+    "role": "Web3 Development",
+    "context": "Fintech · Tokenization · Ripple",
+    "summary": "At Zuvia, I develop applications on the Ripple ecosystem for a tokenization and digital-asset fintech. The work calls for direct financial interfaces, reliable integrations, and constant care for authentication, data integrity, and the protection of operations.",
+    "points": {
+      "one": "Applications built with Ripple, in the context of financial products and digital assets.",
+      "two": "Cybersecurity applied to the flows: access, validation, and operations that need to stay intact.",
+      "three": "End-to-end product, from the interface to the integration that holds the system up."
     }
   },
   "projects": {
     "title": "My",
     "titleHighlight": "Projects",
-    "subtitle": "A selection of my most recent work, demonstrating expertise in different technologies and domains.",
+    "subtitle": "The engineering base behind the blockchain and fintech focus: frontend, backend, product, automation, and protected flows.",
     "viewAll": "View All on GitHub",
     "code": "Code",
     "demo": "Demo",
@@ -90,7 +156,11 @@
   "skills": {
     "title": "My",
     "titleHighlight": "Skills",
-    "subtitle": "Technologies and tools I master to create complete and efficient solutions.",
+    "subtitle": "The JavaScript flow with Node and MongoDB, plus the Web3 layer: blockchain, Ripple, XRP, and MetaMask.",
+    "scanLabel": "AI // STACK SCAN",
+    "scanStatus": "mapping",
+    "focusTitle": "In focus now",
+    "focusDescription": "Applications on the Ripple ecosystem, products for fintechs, and security treated as part of the system — not as a last-minute patch.",
     "categories": {
       "frontend": "Frontend",
       "backend": "Backend",
@@ -103,13 +173,13 @@
     },
     "alwaysLearning": {
       "title": "Always Learning",
-      "description": "Technology evolves constantly, and I stay updated with the latest trends and best practices. I'm always exploring new tools and frameworks to offer the best possible solutions."
+      "description": "I keep going deeper on ledgers, secure code, and the tools a fintech needs to sustain a product. I also keep exploring new languages and platforms."
     }
   },
   "contact": {
     "title": "Get In",
     "titleHighlight": "Touch",
-    "subtitle": "Let's talk about your next project? I'm always open to new opportunities and interesting challenges.",
+    "subtitle": "Shall we talk about blockchain, fintechs, Ripple applications, or a product that needs to be secure from the start?",
     "form": {
       "title": "Send a Message",
       "name": "Name",
@@ -117,14 +187,14 @@
       "email": "Email",
       "emailPlaceholder": "your@email.com",
       "message": "Message",
-      "messagePlaceholder": "Describe your project or how I can help...",
+      "messagePlaceholder": "Describe the product, the fintech, or how I can help...",
       "send": "Send Message"
     },
     "connect": {
       "title": "Let's Connect",
-      "description": "I'm always interested in challenging new projects and collaboration opportunities. Whether for web application development, automations or technical consulting, I'll be happy to talk about how I can help.",
-      "email": "joaomatheus@email.com",
-      "phone": "+55 (11) 99999-9999"
+      "description": "I am open to blockchain and fintech products, applications on the Ripple ecosystem, applied security, web development, automations, and technical consulting.",
+      "email": "joaomatheusjau667@gmail.com",
+      "phone": "+55 (14) 98145-9596"
     },
     "social": {
       "title": "Social Media"
@@ -135,9 +205,41 @@
       "description": "I usually respond within 24 hours. For urgent projects, contact me via WhatsApp."
     }
   },
+  "canada": {
+    "kicker": "Toronto · Canada",
+    "title": "Immersion",
+    "titleHighlight": "in Canada",
+    "lead": "I went to Canada to study English and invest in my personal development.",
+    "p1": "English left the classroom and entered the routine. Talking, getting through the day, and figuring things out in another language turned fluency from an exercise into a real tool.",
+    "p2": "Living abroad was also personal development: autonomy, adaptation, and the decision to be somewhere new, away from the usual network. It stayed with me in how I communicate, choose, and hold a routine on my own.",
+    "p3": "The city and the distance from home widened my view. I carry that experience into international teams and products, on the same path as blockchain and fintechs.",
+    "place": "Toronto, Canada",
+    "cards": {
+      "english": {
+        "title": "English in daily life",
+        "description": "Fluency built in real conversation, not only in class."
+      },
+      "growth": {
+        "title": "Personal development",
+        "description": "Autonomy, adaptation, and presence in another culture."
+      },
+      "global": {
+        "title": "Global view",
+        "description": "A base for working in international contexts and teams."
+      }
+    }
+  },
   "education": {
     "title": "Academic",
     "titleHighlight": "Education",
+    "kicker": "TABLE // EDUCATION",
+    "hud": "DIGITAL ARCHIVE",
+    "scanning": "reading certificate",
+    "now": "in progress",
+    "lanes": {
+      "study": "Study",
+      "language": "Language"
+    },
     "academic": {
       "title": "Academic Education",
       "highSchool": {
@@ -152,6 +254,12 @@
         "period": "2019–2023",
         "description": "I studied English focusing on fluency for both personal and professional use. I reached intermediate level, preparing myself to work in environments that require global communication."
       },
+      "canada": {
+        "title": "Immersion in Canada",
+        "institution": "English and personal development",
+        "period": "Canada",
+        "description": "I went to Canada to study English and deepen my personal development. The experience strengthened communication, autonomy, and my view of working in international technology and fintech contexts."
+      },
       "graduation": {
         "title": "Computer Science Degree",
         "institution": "University of the Sacred Heart, Bauru",
@@ -163,6 +271,18 @@
       "title": "Courses and Certificates",
       "viewCertificate": "View Certificate",
       "items": {
+        "solidity": {
+          "title": "Blockchain and Solidity",
+          "platform": "Alura",
+          "hours": "10h",
+          "description": "Smart contracts and tokens: Solidity, on-chain implementation, validation, tests, wallets, front-end integration, and security practices."
+        },
+        "cybersecurity": {
+          "title": "Cybersecurity",
+          "platform": "Alura",
+          "hours": "12h",
+          "description": "Fundamentals and integrated practice: information security, threats, malicious actors, controls, governance, and compliance."
+        },
         "reactIntensive": {
           "title": "ReactJS Intensive",
           "platform": "Udemy",
@@ -191,7 +311,7 @@
     }
   },
   "footer": {
-    "description": "Full Stack Developer passionate about creating innovative digital solutions. Transforming ideas into code and experiences into solutions since 2021.",
+    "description": "Web3 developer focused on blockchain, fintechs, and cybersecurity. Applications on the Ripple ecosystem, experience at Zuvia, and a full-stack base to take the product through to the end.",
     "madeWith": "Made with",
     "coffee": "and lots of coffee ☕",
     "quickLinks": "Quick Links",

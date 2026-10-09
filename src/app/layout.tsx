@@ -25,9 +25,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "João Matheus | Desenvolvedor Full Stack",
-  description: "Portfólio de João Matheus - Desenvolvedor Full Stack especializado em React, Vue.js, PHP, C# e automações. Transformando ideias em código e experiências em soluções.",
-  keywords: ["desenvolvedor", "full stack", "React", "Vue.js", "PHP", "C#", "automação", "SaaS"],
+  title: "João Matheus | Blockchain, Fintechs e Cibersegurança",
+  description: "Portfólio de João Matheus Marques — desenvolvedor Web3 focado em blockchain e fintechs. Aplicações no ecossistema Ripple, experiência na Zuvia e cibersegurança aplicada ao produto.",
+  keywords: ["blockchain", "fintech", "Web3", "Ripple", "XRP Ledger", "Zuvia", "cibersegurança", "desenvolvedor"],
   authors: [{ name: "João Matheus" }],
   viewport: "width=device-width, initial-scale=1",
   themeColor: "#00d4ff",
