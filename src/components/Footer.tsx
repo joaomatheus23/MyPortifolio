@@ -73,8 +73,8 @@ export default function Footer() {
               className="lg:col-span-2"
             >
               <h3 
-                className="text-3xl font-black mb-4"
-                style={{ fontFamily: 'var(--font-orbitron)' }}
+                className="text-3xl font-bold tracking-tight mb-4"
+                style={{ fontFamily: 'var(--font-display)' }}
               >
                 <span className="text-white">J</span>
                 <span className="text-primary text-glow-cyan">0</span>
@@ -103,7 +103,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
+              <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-display)' }}>
                 {t('footer.quickLinks')}
               </h4>
               <ul className="space-y-3">
@@ -126,7 +126,7 @@ export default function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
+              <h4 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-display)' }}>
                 {t('footer.contact')}
               </h4>
               <div className="space-y-4">
@@ -213,7 +213,7 @@ export default function Footer() {
               TailwindCSS
             </span>
             <span className="flex items-center gap-2">
-              <span className="w-2 h-2 bg-cyan-400 rounded-full"></span>
+              <span className="w-2 h-2 bg-violet-400 rounded-full"></span>
               Framer Motion
             </span>
           </div>

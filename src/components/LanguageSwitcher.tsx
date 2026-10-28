@@ -38,7 +38,7 @@ export default function LanguageSwitcher() {
     }
   }, [i18n.isInitialized]);
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
+  const currentLanguage = languages.find(lang => i18n.language?.toLowerCase().startsWith(lang.code)) || languages[0];
 
   const handleLanguageChange = (langCode: string) => {
     i18n.changeLanguage(langCode);
@@ -47,7 +47,7 @@ export default function LanguageSwitcher() {
 
   if (!isReady) {
     return (
-      <div className="flex items-center gap-2 p-2 rounded-lg glass border border-white/10">
+      <div className="glass-apple flex items-center gap-2 rounded-full px-3 py-2">
         <span className="text-xl">🇧🇷</span>
         <span className="text-sm font-medium text-white hidden sm:block">PT</span>
       </div>
@@ -58,7 +58,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 p-2 rounded-lg glass border border-white/10 hover:border-primary/30 transition-all duration-300"
+        className="glass-apple flex items-center gap-2 rounded-full px-3 py-2 transition-all duration-300 hover:bg-white/10"
       >
         <span className="text-xl">{currentLanguage.flag}</span>
         <span className="text-sm font-medium text-white hidden sm:block">
@@ -90,7 +90,7 @@ export default function LanguageSwitcher() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -10, scale: 0.95 }}
               transition={{ duration: 0.15 }}
-              className="absolute top-full right-0 mt-2 w-48 glass rounded-lg border border-white/10 overflow-hidden z-50"
+              className="glass-apple absolute top-full right-0 z-50 mt-2 w-48 overflow-hidden rounded-2xl"
             >
               {languages.map((language) => (
                 <button

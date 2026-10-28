@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useMemo, useState } from 'react';
+import dynamic from 'next/dynamic';
 import { useTranslation } from 'react-i18next';
 import { Blocks } from 'lucide-react';
 import { FaNodeJs, FaReact } from 'react-icons/fa';
@@ -15,6 +16,8 @@ import {
   SiTypescript,
   SiXrp,
 } from 'react-icons/si';
+
+const NetworkCanvas = dynamic(() => import('./three/NetworkScene'), { ssr: false });
 
 function MetaMaskIcon({ className }: { className?: string }) {
   return (
@@ -38,108 +41,109 @@ type SkillItem = {
   layer: string;
   icon: React.ComponentType<{ className?: string }>;
   color: string;
+  hex: string;
 };
 
 export default function Skills() {
   const { t } = useTranslation();
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const skills = useMemo<SkillItem[]>(() => [
-    { name: 'JavaScript', layer: 'runtime', icon: SiJavascript, color: 'text-[#F7DF1E]' },
-    { name: 'TypeScript', layer: 'runtime', icon: SiTypescript, color: 'text-[#3178C6]' },
-    { name: 'React', layer: 'interface', icon: FaReact, color: 'text-[#61DAFB]' },
-    { name: 'Next.js', layer: 'interface', icon: SiNextdotjs, color: 'text-white' },
-    { name: 'Node.js', layer: 'server', icon: FaNodeJs, color: 'text-[#5FA04E]' },
-    { name: 'MongoDB', layer: 'data', icon: SiMongodb, color: 'text-[#47A248]' },
-    { name: 'Blockchain', layer: 'web3', icon: Blocks, color: 'text-primary' },
-    { name: 'Ripple', layer: 'web3', icon: SiRipple, color: 'text-white' },
-    { name: 'XRP', layer: 'web3', icon: SiXrp, color: 'text-[#23A8E0]' },
-    { name: 'MetaMask', layer: 'wallet', icon: MetaMaskIcon, color: '' },
-    { name: 'Solidity', layer: 'web3', icon: SiSolidity, color: 'text-[#AA6746]' },
-    { name: 'Ethereum', layer: 'web3', icon: SiEthereum, color: 'text-[#8C8C8C]' },
+    { name: 'JavaScript', layer: 'runtime', icon: SiJavascript, color: 'text-[#F7DF1E]', hex: '#F7DF1E' },
+    { name: 'TypeScript', layer: 'runtime', icon: SiTypescript, color: 'text-[#3178C6]', hex: '#3178C6' },
+    { name: 'React', layer: 'interface', icon: FaReact, color: 'text-[#61DAFB]', hex: '#61DAFB' },
+    { name: 'Next.js', layer: 'interface', icon: SiNextdotjs, color: 'text-white', hex: '#e4e4e7' },
+    { name: 'Node.js', layer: 'server', icon: FaNodeJs, color: 'text-[#5FA04E]', hex: '#5FA04E' },
+    { name: 'MongoDB', layer: 'data', icon: SiMongodb, color: 'text-[#47A248]', hex: '#47A248' },
+    { name: 'Blockchain', layer: 'web3', icon: Blocks, color: 'text-primary', hex: '#8b5cf6' },
+    { name: 'Ripple', layer: 'web3', icon: SiRipple, color: 'text-white', hex: '#e4e4e7' },
+    { name: 'XRP', layer: 'web3', icon: SiXrp, color: 'text-[#23A8E0]', hex: '#23A8E0' },
+    { name: 'MetaMask', layer: 'wallet', icon: MetaMaskIcon, color: '', hex: '#E2761B' },
+    { name: 'Solidity', layer: 'web3', icon: SiSolidity, color: 'text-[#AA6746]', hex: '#AA6746' },
+    { name: 'Ethereum', layer: 'web3', icon: SiEthereum, color: 'text-[#8C8C8C]', hex: '#a1a1aa' },
   ], []);
 
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setActive((index) => (index + 1) % skills.length);
-    }, 1300);
+    }, 2400);
     return () => clearInterval(timer);
-  }, [skills.length]);
+  }, [skills.length, paused]);
 
   const current = skills[active];
 
   return (
-    <section id="skills" className="relative overflow-hidden bg-gradient-to-b from-darker via-dark to-darker py-24">
-      <div className="absolute inset-0">
-        <div className="absolute left-1/4 top-1/4 h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
-        <div className="absolute bottom-1/4 right-1/5 h-80 w-80 rounded-full bg-secondary/10 blur-3xl"></div>
-      </div>
-
-      <div className="container relative z-10 mx-auto px-6">
+    <section id="skills" className="screen-section overflow-hidden">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
         <div className="mx-auto max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
+            viewport={{ once: true }}
+            className="mb-4 flex flex-col gap-2 md:mb-6 md:flex-row md:items-end md:justify-between"
           >
-            <h2 className="mb-6 text-4xl font-black text-white md:text-5xl" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              {t('skills.title')} <span className="text-primary text-glow-cyan">{t('skills.titleHighlight')}</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl" style={{ fontFamily: 'var(--font-display)' }}>
+              {t('skills.title')} <span className="text-primary">{t('skills.titleHighlight')}</span>
             </h2>
-            <p className="mx-auto max-w-3xl text-xl text-gray-400">{t('skills.subtitle')}</p>
-            <div className="mx-auto mt-6 h-1 w-20 bg-gradient-to-r from-primary to-secondary"></div>
+            <p className="max-w-md text-sm text-gray-400 md:text-right">{t('skills.subtitle')}</p>
           </motion.div>
 
-          <div className="relative overflow-hidden rounded-3xl border border-primary/25 bg-black/50 shadow-[0_0_80px_rgba(0,212,255,0.12)]">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(0,212,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,212,255,0.05)_1px,transparent_1px)] bg-[size:36px_36px]"></div>
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 animate-[scan_4.2s_linear_infinite] bg-gradient-to-b from-transparent via-primary/25 to-transparent"></div>
-
-            <div className="relative flex flex-col gap-4 border-b border-primary/20 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-              <p className="font-mono text-xs tracking-[0.28em] text-primary">{t('skills.scanLabel')}</p>
+          <div className="relative overflow-hidden rounded-2xl border glass-apple-strong">
+            <div className="relative flex flex-col gap-3 border-b border-white/[0.06] px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="font-mono text-xs tracking-[0.28em] text-gray-500">{t('skillsNetwork.label')}</p>
               <p className="font-mono text-sm text-white">
-                <span className="text-primary">{String(active + 1).padStart(2, '0')}</span>
-                <span className="text-gray-500"> / {String(skills.length).padStart(2, '0')}</span>
-                <span className="mx-3 text-gray-600">·</span>
+                <span className="text-accent">{String(active + 1).padStart(2, '0')}</span>
+                <span className="text-gray-600"> / {String(skills.length).padStart(2, '0')}</span>
+                <span className="mx-3 text-gray-700">·</span>
                 <span>{current.name}</span>
                 <span className="ml-3 text-gray-500">{current.layer}</span>
-                <span className="ml-1 inline-block h-4 w-1.5 translate-y-0.5 bg-primary animate-pulse"></span>
+                <span className="ml-1 inline-block h-4 w-1.5 translate-y-0.5 bg-accent animate-pulse"></span>
               </p>
-              <p className="font-mono text-xs uppercase tracking-[0.22em] text-accent">{t('skills.scanStatus')}</p>
             </div>
 
-            <div className="relative grid grid-cols-2 gap-3 p-4 sm:grid-cols-3 lg:grid-cols-6 sm:p-6">
-              {skills.map((skill, index) => {
-                const on = index === active;
-                return (
-                  <button
-                    key={skill.name}
-                    type="button"
-                    onClick={() => setActive(index)}
-                    className={`relative overflow-hidden rounded-2xl border px-3 py-5 text-center transition-all duration-500 ${
-                      on
-                        ? 'scale-[1.04] border-primary bg-primary/10 shadow-[0_0_32px_rgba(0,212,255,0.28)]'
-                        : 'border-white/10 bg-white/[0.03] hover:border-primary/40'
-                    }`}
-                  >
-                    {on && (
-                      <span className="pointer-events-none absolute inset-x-0 top-0 h-full animate-[scan_1.4s_linear_infinite] bg-gradient-to-b from-transparent via-primary/20 to-transparent"></span>
-                    )}
-                    <skill.icon className={`relative mx-auto mb-3 h-10 w-10 ${skill.color}`} />
-                    <span className="relative block text-sm font-semibold text-white">{skill.name}</span>
-                    <span className="relative mt-1 block font-mono text-[10px] uppercase tracking-[0.18em] text-gray-500">{skill.layer}</span>
-                  </button>
-                );
-              })}
+            <div className="grid md:grid-cols-[1.1fr_1fr]">
+              <div
+                data-tour="skills-0"
+                className="relative border-b border-white/[0.06] md:border-b-0 md:border-r"
+                onMouseEnter={() => setPaused(true)}
+                onMouseLeave={() => setPaused(false)}
+              >
+                <NetworkCanvas
+                  className="h-56 w-full sm:h-72 md:h-[min(26rem,50svh)]"
+                  nodes={skills.map((skill) => ({ name: skill.name, color: skill.hex, icon: skill.icon, iconClass: skill.color }))}
+                  active={active}
+                  onSelect={setActive}
+                />
+                <p className="pointer-events-none absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-[0.22em] text-gray-600">
+                  {t('skillsNetwork.hint')}
+                </p>
+              </div>
+
+              <div data-tour="skills-1" className="grid grid-cols-4 content-center gap-1.5 p-3 sm:grid-cols-3 sm:gap-2 sm:p-6">
+                {skills.map((skill, index) => {
+                  const on = index === active;
+                  return (
+                    <button
+                      key={skill.name}
+                      type="button"
+                      onClick={() => setActive(index)}
+                      className={`rounded-xl border px-1 py-2.5 text-center transition-all duration-300 sm:px-2 sm:py-4 ${
+                        on ? 'glass-apple border-accent/60' : 'glass-apple opacity-80 hover:opacity-100'
+                      }`}
+                    >
+                      <skill.icon className={`mx-auto mb-1.5 h-5 w-5 sm:mb-2 sm:h-7 sm:w-7 ${skill.color}`} />
+                      <span className="block truncate text-[10px] font-semibold text-white sm:text-xs">{skill.name}</span>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <style>{`
-        @keyframes scan {
-          0% { transform: translateY(-120%); }
-          100% { transform: translateY(220%); }
-        }
-      `}</style>
     </section>
   );
 }

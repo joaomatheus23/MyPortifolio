@@ -8,7 +8,8 @@
     "education": "Educação",
     "portfolio": "Portfolio",
     "skills": "Skills",
-    "contact": "Contato"
+    "contact": "Contato",
+    "game": "Jogo"
   },
   "hero": {
     "greeting": "Desenvolvedor Web3",
@@ -17,7 +18,7 @@
     "tagline": "Blockchain e fintechs no ecossistema Ripple, com cibersegurança no centro de cada aplicação",
     "aboutBtn": "Sobre Mim",
     "projectsBtn": "Ver Projetos",
-    "scrollDown": "scroll down",
+    "scrollDown": "role para baixo",
     "terminalTitle": "joao@web3 — zsh",
     "terminal": {
       "cmd1": "whoami",
@@ -117,6 +118,12 @@
       "one": "Aplicações construídas com Ripple, no contexto de produtos financeiros e ativos digitais.",
       "two": "Cibersegurança aplicada aos fluxos: acesso, validação e operações que precisam permanecer íntegras.",
       "three": "Produto de ponta a ponta, da interface até a integração que sustenta o sistema."
+    },
+    "current": "atual",
+    "pointTitles": {
+      "one": "Ecossistema Ripple",
+      "two": "Segurança nos fluxos",
+      "three": "Produto ponta a ponta"
     }
   },
   "projects": {
@@ -227,7 +234,15 @@
         "title": "Visão global",
         "description": "Base para atuar em contextos e times internacionais."
       }
-    }
+    },
+    "route": {
+      "from": "Jaú, BR",
+      "to": "Toronto, CA"
+    },
+    "passLabel": "cartão de embarque",
+    "passenger": "passageiro",
+    "purpose": "motivo",
+    "chapter": "cap."
   },
   "education": {
     "title": "Formação",
@@ -318,5 +333,278 @@
     "contact": "Contato",
     "rights": "Todos os direitos reservados.",
     "techStack": "Desenvolvido com Next.js, TailwindCSS & Framer Motion"
+  },
+  "intro": {
+    "ask": "Me ajuda a quebrar a criptografia desse laptop?",
+    "button": "decifrar",
+    "hint": "clique no laptop ou role para forçar",
+    "skip": "pular",
+    "password": "senha",
+    "lockTitle": "UNIDADE CRIPTOGRAFADA",
+    "decrypting": "removendo criptografia",
+    "layers": ["camada 1/3 · AES-256", "camada 2/3 · RSA-4096", "camada 3/3 · ChaCha20"],
+    "granted": "ACESSO LIBERADO",
+    "unlockedLine": "Criptografia removida. Portfólio liberado.",
+    "locked": "bloqueado"
+  },
+  "guide": {
+    "name": "Bit",
+    "close": "Fechar balão",
+    "open": "Falar com o Bit",
+    "sections": {
+      "home": "Criptografia removida! Agora o portfólio é todo seu.",
+      "about": "Esse é o João. Três pilares, um bloco só.",
+      "experience": "Na Zuvia ele constrói tokenização no ecossistema Ripple.",
+      "cyber": "Pacote suspeito? O escudo segura. Pode descer tranquilo.",
+      "canada": "Toronto! Foi lá que o inglês virou rotina.",
+      "education": "Cada certificado é mais um bloco na corrente.",
+      "projects": "Gira a corrente! Cada bloco é um projeto.",
+      "skills": "Essa é a rede de nós que sustenta a stack.",
+      "contact": "Escolha um canal e manda um oi pro João.",
+      "game": "Bora uma partida? Dá pra jogar contra mim ou contra um amigo."
+    },
+    "tour": {
+      "home": [
+        "Oi, eu sou o Bit. Vou te guiar pelo portfólio do João.",
+        "Você acabou de quebrar a criptografia do laptop. Agora está tudo liberado.",
+        "Em cada seção eu explico o que tem ali. Use o botão abaixo para seguir."
+      ],
+      "about": [
+        "Aqui está quem é o João: desenvolvedor Web3 focado em blockchain e fintechs.",
+        "Os três pilares mostram onde ele atua. Clique em um para ver o objeto 3D mudar.",
+        "Os números resumem a experiência até agora."
+      ],
+      "game": [
+        "Hora de jogar! Invasão é um duelo de cartas hacker.",
+        "Cartas vermelhas atacam, roxas defendem. Cada carta custa CPU.",
+        "Jogue contra mim ou crie uma sala e mande o código para um amigo."
+      ],
+      "experience": [
+        "Na Zuvia, o João desenvolve aplicações no ecossistema Ripple.",
+        "Essa animação mostra a ideia da tokenização: um ativo dividido em muitas frações.",
+        "Esses são os três focos do trabalho dele. Acompanhe o pacote passando por cada um."
+      ],
+      "cyber": [
+        "Esse escudo é uma simulação: pacotes vermelhos são bloqueados, os roxos passam.",
+        "Os cards mostram os três tipos de trabalho em segurança que o João faz.",
+        "O terminal mostra uma revisão de segurança passo a passo."
+      ],
+      "canada": [
+        "Toronto! O João saiu de Jaú para estudar inglês e se desenvolver no Canadá.",
+        "Cada capítulo conta o que a experiência trouxe: fluência, autonomia e visão global."
+      ],
+      "education": [
+        "Esses são a formação e os certificados do João.",
+        "Cada certificado passa por uma verificação antes de abrir. Deslize ou use as setas.",
+        "Clique em \"ver certificado\" para abrir o original."
+      ],
+      "projects": [
+        "Cada projeto está guardado num bloco trancado.",
+        "Escolha um bloco e veja o cadeado abrir para revelar o projeto.",
+        "Depois é só abrir o código no GitHub ou a demo."
+      ],
+      "skills": [
+        "Essa rede mostra a stack do João: cada nó é uma tecnologia.",
+        "Clique num nó ou num ícone para destacar."
+      ],
+      "contact": [
+        "Chegamos ao fim do tour. Gostou? Manda uma mensagem.",
+        "Também dá para chamar no LinkedIn, GitHub, e-mail ou WhatsApp."
+      ]
+    },
+    "next": "próximo",
+    "back": "voltar",
+    "nextSection": "próxima seção",
+    "minimize": "Minimizar o Bit",
+    "restart": "Ver de novo",
+    "step": "passo {{current}} de {{total}}"
+  },
+  "chain": {
+    "label": "Navegação por blocos",
+    "block": "bloco"
+  },
+  "experienceScene": {
+    "asset": "ativo",
+    "tokens": "tokens",
+    "caption": "tokenização: um ativo, muitas frações",
+    "split": "fracionando"
+  },
+  "cyberHud": {
+    "title": "SIMULAÇÃO // FIREWALL",
+    "blocked": "bloqueados",
+    "allowed": "permitidos",
+    "live": "ao vivo",
+    "trying": "tentando quebrar a senha",
+    "denied": "bloqueado pelo escudo"
+  },
+  "projectsChain": {
+    "block": "BLOCO",
+    "hash": "hash",
+    "prev": "anterior",
+    "prevBtn": "Bloco anterior",
+    "nextBtn": "Próximo bloco",
+    "hint": "clique num bloco ou use as setas para girar a corrente"
+  },
+  "skillsNetwork": {
+    "label": "REDE // NÓS DA STACK",
+    "hint": "clique num nó"
+  },
+  "game": {
+    "kicker": "MINIGAME // INVASÃO",
+    "title": "Invasão.",
+    "subtitle": "Um duelo de cartas hacker. Derrube a integridade do sistema rival antes que ele derrube a sua. Jogue contra a máquina ou chame alguém pelo código da sala.",
+    "nameLabel": "Seu codinome",
+    "defaultName": "visitante",
+    "aiName": "Bit (máquina)",
+    "vsAi": "Jogar contra a máquina",
+    "createRoom": "Criar sala online",
+    "codePlaceholder": "código da sala",
+    "join": "Entrar",
+    "onlineNote": "No modo online, os dois navegadores se conectam direto (WebRTC). Um servidor público do PeerJS só ajuda a encontrar a sala. Compartilhe o código ou o link com quem vai jogar.",
+    "roomCode": "Código da sala",
+    "copyLink": "Copiar link de convite",
+    "copied": "Link copiado",
+    "waiting": "aguardando oponente...",
+    "connecting": "conectando à sala...",
+    "cancel": "cancelar",
+    "rulesTitle": "Como jogar",
+    "rules": [
+      "Cada sistema começa com 18 de integridade. Quem zerar a do rival vence.",
+      "A cada turno você ganha CPU (até 6) e compra uma carta. Cada carta custa CPU.",
+      "Ataques em vermelho tiram integridade; o firewall absorve o dano primeiro.",
+      "Defesas em roxo erguem firewall, recuperam integridade ou armam um honeypot.",
+      "Quem joga depois começa com uma carta e 1 CPU a mais."
+    ],
+    "kinds": {
+      "attack": "ataque",
+      "defense": "defesa",
+      "utility": "utilitário"
+    },
+    "cards": {
+      "phishing": {
+        "name": "Phishing",
+        "text": "Causa 3 de dano."
+      },
+      "bruteforce": {
+        "name": "Força bruta",
+        "text": "Causa 4 de dano. +2 se o alvo estiver sem firewall."
+      },
+      "zeroday": {
+        "name": "Zero-day",
+        "text": "Causa 6 de dano ignorando o firewall."
+      },
+      "ddos": {
+        "name": "DDoS",
+        "text": "Causa 4 de dano. O alvo perde 1 CPU no próximo turno."
+      },
+      "ransomware": {
+        "name": "Ransomware",
+        "text": "Causa 6 de dano e o alvo descarta 1 carta."
+      },
+      "firewall": {
+        "name": "Firewall",
+        "text": "+4 de firewall."
+      },
+      "encrypt": {
+        "name": "Criptografia",
+        "text": "+6 de firewall."
+      },
+      "patch": {
+        "name": "Patch",
+        "text": "Recupera 3 de integridade."
+      },
+      "backup": {
+        "name": "Backup",
+        "text": "Recupera 5 de integridade."
+      },
+      "honeypot": {
+        "name": "Honeypot",
+        "text": "Anula o próximo ataque recebido."
+      },
+      "scan": {
+        "name": "Varredura",
+        "text": "Compra 2 cartas."
+      }
+    },
+    "integrity": "integridade",
+    "firewall": "firewall",
+    "cpu": "CPU",
+    "deck": "cartas no baralho",
+    "trapOn": "honeypot",
+    "machine": "máquina",
+    "opponent": "oponente",
+    "you": "você",
+    "foeHand": "O oponente tem {{count}} cartas na mão",
+    "yourTurn": "sua vez",
+    "theirTurn": "vez de {{name}}",
+    "round": "rodada {{round}}",
+    "endTurn": "Encerrar turno",
+    "leave": "Sair",
+    "rematch": "Revanche",
+    "waitHost": "aguardando o anfitrião",
+    "winKicker": "ACESSO TOTAL",
+    "win": "Você invadiu o sistema de {{name}}.",
+    "loseKicker": "SISTEMA COMPROMETIDO",
+    "lose": "{{name}} invadiu o seu sistema.",
+    "disconnectedKicker": "CONEXÃO PERDIDA",
+    "disconnected": "O oponente saiu da partida.",
+    "errors": {
+      "notFound": "Sala não encontrada. Confira o código.",
+      "network": "Não foi possível conectar agora. Tente de novo em instantes.",
+      "unsupported": "Seu navegador não suporta o modo online.",
+      "code": "O código tem 5 caracteres."
+    },
+    "log": {
+      "play": "{{name}} jogou {{card}}",
+      "damage": "{{name}} sofreu {{amount}} de dano",
+      "damageAbsorbed": "{{name}} sofreu {{amount}} de dano ({{absorbed}} no firewall)",
+      "trap": "O honeypot de {{name}} anulou o ataque",
+      "heal": "{{name}} recuperou {{amount}} de integridade",
+      "shield": "{{name}} ganhou {{amount}} de firewall",
+      "draw": "{{name}} comprou {{amount}} cartas",
+      "discard": "{{name}} perdeu uma carta",
+      "drain": "{{name}} vai perder 1 CPU",
+      "fatigue": "{{name}} está sem cartas: -1 de integridade",
+      "turn": "vez de {{name}}",
+      "blocked": "O firewall de {{name}} segurou {{absorbed}} de dano"
+    }
+  },
+  "aboutTabs": {
+    "bio": "Quem sou",
+    "pillars": "Pilares"
+  },
+  "cyberTabs": {
+    "cards": "Atuação",
+    "terminal": "Terminal"
+  },
+  "contactTabs": {
+    "message": "Mensagem",
+    "channels": "Canais"
+  },
+  "vault": {
+    "locked": "bloco trancado",
+    "unlocking": "abrindo bloco",
+    "open": "bloco aberto",
+    "pick": "escolha um bloco"
+  },
+  "certs": {
+    "verifying": "verificando assinatura",
+    "verified": "verificado",
+    "noLink": "certificado sem link público",
+    "timeline": "Formação",
+    "courses": "Certificados",
+    "swipe": "deslize para trocar"
+  },
+  "gameUi": {
+    "demo": "demonstração ao vivo",
+    "play": "Jogar agora",
+    "rules": "Como jogar",
+    "close": "fechar",
+    "blocked": "bloqueado",
+    "trapped": "honeypot!",
+    "cards": "+{{n}} cartas",
+    "yourTurnBanner": "SUA VEZ",
+    "theirTurnBanner": "VEZ DE {{name}}",
+    "hand": "Sua mão"
   }
 }

@@ -8,7 +8,8 @@
     "education": "Education",
     "portfolio": "Portfolio",
     "skills": "Skills",
-    "contact": "Contact"
+    "contact": "Contact",
+    "game": "Game"
   },
   "hero": {
     "greeting": "Web3 Developer",
@@ -117,6 +118,12 @@
       "one": "Applications built with Ripple, in the context of financial products and digital assets.",
       "two": "Cybersecurity applied to the flows: access, validation, and operations that need to stay intact.",
       "three": "End-to-end product, from the interface to the integration that holds the system up."
+    },
+    "current": "current",
+    "pointTitles": {
+      "one": "Ripple ecosystem",
+      "two": "Security in every flow",
+      "three": "End-to-end product"
     }
   },
   "projects": {
@@ -227,7 +234,15 @@
         "title": "Global view",
         "description": "A base for working in international contexts and teams."
       }
-    }
+    },
+    "route": {
+      "from": "Jaú, BR",
+      "to": "Toronto, CA"
+    },
+    "passLabel": "boarding pass",
+    "passenger": "passenger",
+    "purpose": "purpose",
+    "chapter": "ch."
   },
   "education": {
     "title": "Academic",
@@ -318,5 +333,278 @@
     "contact": "Contact",
     "rights": "All rights reserved.",
     "techStack": "Built with Next.js, TailwindCSS & Framer Motion"
+  },
+  "intro": {
+    "ask": "Help me break this laptop's encryption?",
+    "button": "decrypt",
+    "hint": "click the laptop or scroll to force it",
+    "skip": "skip",
+    "password": "password",
+    "lockTitle": "ENCRYPTED DRIVE",
+    "decrypting": "removing encryption",
+    "layers": ["layer 1/3 · AES-256", "layer 2/3 · RSA-4096", "layer 3/3 · ChaCha20"],
+    "granted": "ACCESS GRANTED",
+    "unlockedLine": "Encryption removed. Portfolio unlocked.",
+    "locked": "locked"
+  },
+  "guide": {
+    "name": "Bit",
+    "close": "Close bubble",
+    "open": "Talk to Bit",
+    "sections": {
+      "home": "Encryption removed! The portfolio is all yours now.",
+      "about": "This is João. Three pillars, one block.",
+      "experience": "At Zuvia he builds tokenization on the Ripple ecosystem.",
+      "cyber": "Suspicious packet? The shield holds. Keep scrolling.",
+      "canada": "Toronto! That is where English became routine.",
+      "education": "Every certificate is one more block in the chain.",
+      "projects": "Spin the chain! Every block is a project.",
+      "skills": "This is the node network behind the stack.",
+      "contact": "Pick a channel and say hi to João.",
+      "game": "Up for a match? Play against me or a friend."
+    },
+    "tour": {
+      "home": [
+        "Hi, I'm Bit. I'll guide you through João's portfolio.",
+        "You just broke the laptop's encryption. Everything is unlocked now.",
+        "I explain every section along the way. Use the button below to move on."
+      ],
+      "about": [
+        "This is João: a Web3 developer focused on blockchain and fintechs.",
+        "The three pillars show where he works. Click one to change the 3D object.",
+        "The numbers sum up his experience so far."
+      ],
+      "game": [
+        "Game time! Breach is a hacker card duel.",
+        "Red cards attack, purple cards defend. Every card costs CPU.",
+        "Play against me or create a room and send the code to a friend."
+      ],
+      "experience": [
+        "At Zuvia, João builds applications on the Ripple ecosystem.",
+        "This animation shows the idea of tokenization: one asset split into many fractions.",
+        "These are the three focuses of his work. Follow the packet through each one."
+      ],
+      "cyber": [
+        "This shield is a simulation: red packets get blocked, purple ones pass.",
+        "The cards show the three kinds of security work João does.",
+        "The terminal walks through a security review step by step."
+      ],
+      "canada": [
+        "Toronto! João left Jaú to study English and grow in Canada.",
+        "Each chapter tells what the experience brought: fluency, autonomy and a global view."
+      ],
+      "education": [
+        "These are João's education and certificates.",
+        "Every certificate is verified before it opens. Swipe or use the arrows.",
+        "Click \"view certificate\" to open the original."
+      ],
+      "projects": [
+        "Every project is stored inside a locked block.",
+        "Pick a block and watch the padlock open to reveal the project.",
+        "Then open the code on GitHub or the live demo."
+      ],
+      "skills": [
+        "This network shows João's stack: every node is a technology.",
+        "Click a node or an icon to highlight it."
+      ],
+      "contact": [
+        "That is the end of the tour. Liked it? Send a message.",
+        "You can also reach him on LinkedIn, GitHub, email or WhatsApp."
+      ]
+    },
+    "next": "next",
+    "back": "back",
+    "nextSection": "next section",
+    "minimize": "Minimize Bit",
+    "restart": "See again",
+    "step": "step {{current}} of {{total}}"
+  },
+  "chain": {
+    "label": "Block navigation",
+    "block": "block"
+  },
+  "experienceScene": {
+    "asset": "asset",
+    "tokens": "tokens",
+    "caption": "tokenization: one asset, many fractions",
+    "split": "splitting"
+  },
+  "cyberHud": {
+    "title": "SIMULATION // FIREWALL",
+    "blocked": "blocked",
+    "allowed": "allowed",
+    "live": "live",
+    "trying": "trying to crack the password",
+    "denied": "blocked by the shield"
+  },
+  "projectsChain": {
+    "block": "BLOCK",
+    "hash": "hash",
+    "prev": "prev",
+    "prevBtn": "Previous block",
+    "nextBtn": "Next block",
+    "hint": "click a block or use the arrows to spin the chain"
+  },
+  "skillsNetwork": {
+    "label": "NETWORK // STACK NODES",
+    "hint": "click a node"
+  },
+  "game": {
+    "kicker": "MINIGAME // BREACH",
+    "title": "Breach.",
+    "subtitle": "A hacker card duel. Take down the rival system's integrity before it takes down yours. Play the machine or invite someone with a room code.",
+    "nameLabel": "Your codename",
+    "defaultName": "guest",
+    "aiName": "Bit (machine)",
+    "vsAi": "Play the machine",
+    "createRoom": "Create online room",
+    "codePlaceholder": "room code",
+    "join": "Join",
+    "onlineNote": "Online mode connects both browsers directly (WebRTC). A public PeerJS server only helps find the room. Share the code or the link with whoever will play.",
+    "roomCode": "Room code",
+    "copyLink": "Copy invite link",
+    "copied": "Link copied",
+    "waiting": "waiting for an opponent...",
+    "connecting": "connecting to the room...",
+    "cancel": "cancel",
+    "rulesTitle": "How to play",
+    "rules": [
+      "Each system starts with 18 integrity. Bring the rival to zero to win.",
+      "Every turn you gain CPU (up to 6) and draw a card. Each card costs CPU.",
+      "Red attacks remove integrity; firewall absorbs damage first.",
+      "Purple defenses raise firewall, restore integrity or arm a honeypot.",
+      "The second player starts with one extra card and 1 extra CPU."
+    ],
+    "kinds": {
+      "attack": "attack",
+      "defense": "defense",
+      "utility": "utility"
+    },
+    "cards": {
+      "phishing": {
+        "name": "Phishing",
+        "text": "Deals 3 damage."
+      },
+      "bruteforce": {
+        "name": "Brute force",
+        "text": "Deals 4 damage. +2 if the target has no firewall."
+      },
+      "zeroday": {
+        "name": "Zero-day",
+        "text": "Deals 6 damage, ignoring firewall."
+      },
+      "ddos": {
+        "name": "DDoS",
+        "text": "Deals 4 damage. Target loses 1 CPU next turn."
+      },
+      "ransomware": {
+        "name": "Ransomware",
+        "text": "Deals 6 damage and the target discards 1 card."
+      },
+      "firewall": {
+        "name": "Firewall",
+        "text": "+4 firewall."
+      },
+      "encrypt": {
+        "name": "Encryption",
+        "text": "+6 firewall."
+      },
+      "patch": {
+        "name": "Patch",
+        "text": "Restores 3 integrity."
+      },
+      "backup": {
+        "name": "Backup",
+        "text": "Restores 5 integrity."
+      },
+      "honeypot": {
+        "name": "Honeypot",
+        "text": "Cancels the next attack you receive."
+      },
+      "scan": {
+        "name": "Scan",
+        "text": "Draws 2 cards."
+      }
+    },
+    "integrity": "integrity",
+    "firewall": "firewall",
+    "cpu": "CPU",
+    "deck": "cards in deck",
+    "trapOn": "honeypot",
+    "machine": "machine",
+    "opponent": "opponent",
+    "you": "you",
+    "foeHand": "The opponent holds {{count}} cards",
+    "yourTurn": "your turn",
+    "theirTurn": "{{name}}'s turn",
+    "round": "round {{round}}",
+    "endTurn": "End turn",
+    "leave": "Leave",
+    "rematch": "Rematch",
+    "waitHost": "waiting for the host",
+    "winKicker": "FULL ACCESS",
+    "win": "You breached {{name}}'s system.",
+    "loseKicker": "SYSTEM COMPROMISED",
+    "lose": "{{name}} breached your system.",
+    "disconnectedKicker": "CONNECTION LOST",
+    "disconnected": "Your opponent left the match.",
+    "errors": {
+      "notFound": "Room not found. Check the code.",
+      "network": "Could not connect right now. Try again in a moment.",
+      "unsupported": "Your browser does not support online mode.",
+      "code": "The code has 5 characters."
+    },
+    "log": {
+      "play": "{{name}} played {{card}}",
+      "damage": "{{name}} took {{amount}} damage",
+      "damageAbsorbed": "{{name}} took {{amount}} damage ({{absorbed}} on firewall)",
+      "trap": "{{name}}'s honeypot cancelled the attack",
+      "heal": "{{name}} restored {{amount}} integrity",
+      "shield": "{{name}} gained {{amount}} firewall",
+      "draw": "{{name}} drew {{amount}} cards",
+      "discard": "{{name}} lost a card",
+      "drain": "{{name}} will lose 1 CPU",
+      "fatigue": "{{name}} is out of cards: -1 integrity",
+      "turn": "{{name}}'s turn",
+      "blocked": "{{name}}'s firewall blocked {{absorbed}} damage"
+    }
+  },
+  "aboutTabs": {
+    "bio": "Who I am",
+    "pillars": "Pillars"
+  },
+  "cyberTabs": {
+    "cards": "Work",
+    "terminal": "Terminal"
+  },
+  "contactTabs": {
+    "message": "Message",
+    "channels": "Channels"
+  },
+  "vault": {
+    "locked": "locked block",
+    "unlocking": "opening block",
+    "open": "block open",
+    "pick": "pick a block"
+  },
+  "certs": {
+    "verifying": "verifying signature",
+    "verified": "verified",
+    "noLink": "certificate without a public link",
+    "timeline": "Education",
+    "courses": "Certificates",
+    "swipe": "swipe to switch"
+  },
+  "gameUi": {
+    "demo": "live demo",
+    "play": "Play now",
+    "rules": "How to play",
+    "close": "close",
+    "blocked": "blocked",
+    "trapped": "honeypot!",
+    "cards": "+{{n}} cards",
+    "yourTurnBanner": "YOUR TURN",
+    "theirTurnBanner": "{{name}}'S TURN",
+    "hand": "Your hand"
   }
 }

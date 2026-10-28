@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
 @import "tailwindcss";
 
+/* Paleta: preto e cinza escuro, roxo como cor principal e vermelho de alerta ("hackeado") */
 :root {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --cyber-blue: #00d4ff;
-  --neon-purple: #8b5cf6;
-  --neon-green: #00ff88;
-  --dark-bg: #0f0f0f;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glow-cyan: #00ffff;
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-cyber: linear-gradient(135deg, #00d4ff 0%, #8b5cf6 50%, #00ff88 100%);
+  --background: #09090b;
+  --foreground: #f4f4f5;
+  --cyber-blue: #8b5cf6;
+  --neon-purple: #a78bfa;
+  --neon-green: #ff3b47;
+  --dark-bg: #0a0a0c;
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glow-cyan: #a78bfa;
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --gradient-cyber: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #ff3b47 100%);
+  --font-display: var(--font-geist-sans), sans-serif;
 }
 
 @theme {
@@ -23,19 +24,17 @@
   --color-dark-bg: var(--dark-bg);
   --color-glass-bg: var(--glass-bg);
   --color-glow-cyan: var(--glow-cyan);
-  
-  /* Custom colors for futuristic theme */
-  --color-primary: #00d4ff;
-  --color-secondary: #8b5cf6;
-  --color-accent: #00ff88;
-  --color-dark: #0f0f0f;
-  --color-darker: #0a0a0a;
-  --color-glass: rgba(255, 255, 255, 0.05);
-  --color-glass-border: rgba(255, 255, 255, 0.1);
-  
-  /* Fonts */
-  --font-display: 'Orbitron', monospace;
-  --font-mono: 'Space Mono', monospace;
+
+  --color-primary: #8b5cf6;
+  --color-secondary: #a78bfa;
+  --color-accent: #ff3b47;
+  --color-dark: #0d0d10;
+  --color-darker: #09090b;
+  --color-glass: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+
+  --font-display: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --font-sans: var(--font-geist-sans);
 }
 
@@ -47,15 +46,40 @@ body {
 }
 
 /* Global glassmorphism utility */
-.glass {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+/* Vidro fosco no estilo Apple: desfoque com saturação, borda clara fina e brilho na borda de cima.
+   Fica na camada de componentes para que classes utilitárias (cores de borda, etc.) ainda possam sobrepor. */
+@layer components {
+  .glass,
+  .glass-apple,
+  .glass-apple-strong {
+    position: relative;
+    -webkit-backdrop-filter: blur(30px) saturate(190%) brightness(1.1);
+    backdrop-filter: blur(30px) saturate(190%) brightness(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.38),
+      inset 1px 0 0 rgba(255, 255, 255, 0.08),
+      inset 0 -18px 40px rgba(139, 92, 246, 0.07),
+      0 24px 60px rgba(0, 0, 0, 0.45);
+  }
+
+  .glass,
+  .glass-apple {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.06) 32%, rgba(255, 255, 255, 0.03) 62%, rgba(255, 255, 255, 0.1) 100%);
+  }
+
+  /* Versão com mais corpo para textos longos por cima de animações */
+  .glass-apple-strong {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.04) 30%, rgba(255, 255, 255, 0.02) 65%, rgba(255, 255, 255, 0.08) 100%),
+      rgba(22, 20, 30, 0.5);
+  }
 }
 
 /* Glow effects */
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
 }
 
 .glow-purple {
@@ -63,12 +87,12 @@ body {
 }
 
 .glow-green {
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 20px rgba(255, 59, 71, 0.3);
 }
 
 /* Text glow effects */
 .text-glow-cyan {
-  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 14px rgba(139, 92, 246, 0.45);
 }
 
 .text-glow-purple {
@@ -76,7 +100,7 @@ body {
 }
 
 .text-glow-green {
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  text-shadow: 0 0 14px rgba(255, 59, 71, 0.5);
 }
 
 /* Animations */
@@ -87,10 +111,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.25);
   }
   50% { 
-    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
   }
 }
 
@@ -123,10 +147,108 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--cyber-blue), var(--neon-purple));
+  background: #3f3f46;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, var(--glow-cyan), var(--neon-green));
+  background: var(--cyber-blue);
+}
+
+/* Wordmark gigante atrás do retrato no hero */
+.wordmark {
+  display: inline-block;
+  font-family: var(--font-geist-sans), sans-serif;
+  font-weight: 200;
+  font-size: clamp(3.4rem, 13.5vw, 15rem);
+  line-height: 0.9;
+  letter-spacing: -0.055em;
+  white-space: nowrap;
+  background: linear-gradient(90deg, rgba(161, 161, 170, 0.16), rgba(139, 92, 246, 0.3) 60%, rgba(255, 59, 71, 0.22));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes botled {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes bot-hop {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-10px); }
+  60% { transform: translateY(0); }
+  80% { transform: translateY(-3px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Cada seção ocupa a tela; no desktop a rolagem "encaixa" no início delas */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
+.screen-section {
+  position: relative;
+  display: flex;
+  min-height: 100svh;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+  padding-top: 4rem;
+  padding-bottom: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .screen-section {
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes arenafloor {
+  from { background-position: 0 0; }
+  to { background-position: 0 46px; }
+}
+
+@keyframes shine {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* Passinho do Bit enquanto ele caminha pela tela */
+@keyframes botwalk {
+  0%, 100% { transform: rotate(-7deg) translateY(0); }
+  50% { transform: rotate(7deg) translateY(-4px); }
+}
+
+/* Luzes coloridas lentas atrás de tudo: dão algo para o vidro fosco desfocar */
+@keyframes ambient-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(6vw, -4vh, 0) scale(1.1); }
+  66% { transform: translate3d(-5vw, 5vh, 0) scale(0.95); }
+}
+
+.ambient-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  animation: ambient-drift 28s ease-in-out infinite;
 }

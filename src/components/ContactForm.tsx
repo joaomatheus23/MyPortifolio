@@ -26,6 +26,8 @@ export default function ContactForm() {
     message: ''
   });
 
+  const [tab, setTab] = useState<'message' | 'channels'>('message');
+
   const [formStatus, setFormStatus] = useState<FormStatus>({
     type: 'idle',
     message: ''
@@ -122,133 +124,105 @@ export default function ContactForm() {
     }
   ];
 
-  return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-dark via-darker to-dark relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/6 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse-glow"></div>
-        <div className="absolute bottom-1/3 right-1/5 w-80 h-80 bg-accent/5 rounded-full blur-3xl animate-pulse-glow" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-2/3 left-1/2 w-64 h-64 bg-secondary/5 rounded-full blur-3xl animate-pulse-glow" style={{animationDelay: '3s'}}></div>
-      </div>
+  const inputClass =
+    'w-full rounded-lg border border-white/15 bg-black/50 px-4 py-2.5 text-white placeholder-gray-400 transition focus:border-primary/60 focus:bg-white/[0.05] focus:outline-none';
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-6xl mx-auto">
-          {/* Section header */}
+  return (
+    <section id="contact" className="screen-section overflow-hidden">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="mb-4 flex flex-col gap-2 md:mb-8 md:flex-row md:items-end md:justify-between"
           >
-            <h2 className="text-4xl md:text-5xl font-black mb-6 text-white" style={{ fontFamily: 'var(--font-orbitron)' }}>
-              {t('contact.title')} <span className="text-primary text-glow-cyan">{t('contact.titleHighlight')}</span>
+            <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl" style={{ fontFamily: 'var(--font-display)' }}>
+              {t('contact.title')} <span className="text-primary">{t('contact.titleHighlight')}</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              {t('contact.subtitle')}
-            </p>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6"></div>
+            <p className="max-w-md text-sm text-gray-400 md:text-right">{t('contact.subtitle')}</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Contact form */}
+          <div className="mb-3 flex gap-1 rounded-lg border border-white/10 bg-black/40 p-1 md:hidden" role="tablist">
+            {(['message', 'channels'] as const).map((key) => (
+              <button
+                key={key}
+                type="button"
+                role="tab"
+                aria-selected={tab === key}
+                onClick={() => setTab(key)}
+                className={`flex-1 rounded-md py-2 font-mono text-[11px] uppercase tracking-[0.2em] transition ${tab === key ? 'bg-primary text-white' : 'text-gray-400'}`}
+              >
+                {t(`contactTabs.${key}`)}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid items-stretch gap-4 md:grid-cols-[1.1fr_1fr] md:gap-6">
             <motion.div
-              initial={{ opacity: 0, x: -50 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="glass rounded-2xl p-8 border border-white/10"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              data-tour="contact-0"
+              className={`${tab === 'message' ? 'block' : 'hidden'} rounded-2xl border glass-apple-strong p-5 sm:p-7 md:block`}
             >
-              <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                {t('contact.form.title')}
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Name field */}
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-300 mb-2">
-                    {t('contact.form.name')}
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300"
-                    placeholder={t('contact.form.namePlaceholder')}
-                    required
-                  />
+              <h3 className="mb-4 text-lg font-semibold text-white">{t('contact.form.title')}</h3>
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="grid gap-3 sm:grid-cols-2">
+                  <div>
+                    <label htmlFor="name" className="mb-1 block font-mono text-[10px] uppercase tracking-[0.2em] text-gray-300">
+                      {t('contact.form.name')}
+                    </label>
+                    <input type="text" id="name" name="name" value={formData.name} onChange={handleInputChange} className={inputClass} placeholder={t('contact.form.namePlaceholder')} required />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="mb-1 block font-mono text-[10px] uppercase tracking-[0.2em] text-gray-300">
+                      {t('contact.form.email')}
+                    </label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} className={inputClass} placeholder={t('contact.form.emailPlaceholder')} required />
+                  </div>
                 </div>
-
-                {/* Email field */}
                 <div>
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-300 mb-2">
-                    {t('contact.form.email')}
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300"
-                    placeholder={t('contact.form.emailPlaceholder')}
-                    required
-                  />
-                </div>
-
-                {/* Message field */}
-                <div>
-                  <label htmlFor="message" className="block text-sm font-semibold text-gray-300 mb-2">
+                  <label htmlFor="message" className="mb-1 block font-mono text-[10px] uppercase tracking-[0.2em] text-gray-300">
                     {t('contact.form.message')}
                   </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary/50 focus:bg-white/10 transition-all duration-300 resize-none"
-                    placeholder={t('contact.form.messagePlaceholder')}
-                    required
-                  ></textarea>
+                  <textarea id="message" name="message" value={formData.message} onChange={handleInputChange} rows={4} className={`${inputClass} resize-none`} placeholder={t('contact.form.messagePlaceholder')} required></textarea>
                 </div>
 
-                {/* Status message */}
                 {formStatus.type !== 'idle' && (
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className={`flex items-center gap-2 p-3 rounded-lg ${
+                    className={`flex items-center gap-2 rounded-lg p-3 ${
                       formStatus.type === 'success' ? 'bg-green-500/10 text-green-400 border border-green-500/20' :
                       formStatus.type === 'error' ? 'bg-red-500/10 text-red-400 border border-red-500/20' :
                       'bg-primary/10 text-primary border border-primary/20'
                     }`}
                   >
-                    {formStatus.type === 'success' && <CheckCircle className="w-5 h-5" />}
-                    {formStatus.type === 'error' && <AlertCircle className="w-5 h-5" />}
-                    {formStatus.type === 'sending' && (
-                      <div className="w-5 h-5 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-                    )}
+                    {formStatus.type === 'success' && <CheckCircle className="h-5 w-5" />}
+                    {formStatus.type === 'error' && <AlertCircle className="h-5 w-5" />}
+                    {formStatus.type === 'sending' && <div className="h-5 w-5 animate-spin rounded-full border-2 border-primary border-t-transparent"></div>}
                     <span className="text-sm">{formStatus.message}</span>
                   </motion.div>
                 )}
 
-                {/* Submit button */}
                 <motion.button
                   type="submit"
                   disabled={formStatus.type === 'sending'}
-                  whileHover={{ scale: 1.02 }}
+                  whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full flex items-center justify-center gap-3 px-6 py-4 bg-gradient-to-r from-primary via-secondary to-accent rounded-lg font-semibold text-dark hover:scale-105 transition-all duration-300 animate-gradient disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary/85 disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {formStatus.type === 'sending' ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-dark border-t-transparent rounded-full animate-spin"></div>
+                      <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
                       Enviando...
                     </>
                   ) : (
                     <>
-                      <Send className="w-5 h-5" />
+                      <Send className="h-5 w-5" />
                       {t('contact.form.send')}
                     </>
                   )}
@@ -256,71 +230,42 @@ export default function ContactForm() {
               </form>
             </motion.div>
 
-            {/* Contact info and social links */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="space-y-8"
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              data-tour="contact-1"
+              className={`${tab === 'channels' ? 'flex' : 'hidden'} flex-col rounded-2xl border glass-apple-strong p-5 sm:p-7 md:flex`}
             >
-              {/* Contact info */}
-              <div className="glass rounded-2xl p-8 border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  {t('contact.connect.title')}
-                </h3>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  {t('contact.connect.description')}
-                </p>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center text-gray-300">
-                    <Mail className="w-5 h-5 text-primary mr-3" />
-                    <span>joaomatheusjau667@gmail.com</span>
-                  </div>
-                  <div className="flex items-center text-gray-300">
-                    <MessageCircle className="w-5 h-5 text-accent mr-3" />
-                    <span>+55 (14) 98145-9596</span>
-                  </div>
-                </div>
+              <h3 className="mb-2 text-lg font-semibold text-white">{t('contact.connect.title')}</h3>
+              <p className="mb-4 text-sm leading-relaxed text-gray-400">{t('contact.connect.description')}</p>
+              <div className="mb-4 space-y-2 text-sm text-gray-300">
+                <p className="flex items-center gap-3"><Mail className="h-4 w-4 text-primary" />joaomatheusjau667@gmail.com</p>
+                <p className="flex items-center gap-3"><MessageCircle className="h-4 w-4 text-accent" />+55 (14) 98145-9596</p>
               </div>
-
-              {/* Social links */}
-              <div className="glass rounded-2xl p-8 border border-white/10">
-                <h3 className="text-xl font-bold text-white mb-6" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  {t('contact.social.title')}
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {socialLinks.map((social, index) => (
-                    <motion.a
-                      key={social.name}
-                      href={social.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      whileHover={{ scale: 1.05 }}
-                      className={`flex items-center gap-3 p-4 bg-white/5 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 ${social.color}`}
-                    >
-                      <social.icon className="w-6 h-6" />
-                      <span className="font-semibold">{social.name}</span>
-                    </motion.a>
-                  ))}
-                </div>
+              <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.22em] text-gray-500">{t('contact.social.title')}</p>
+              <div className="grid grid-cols-2 gap-2">
+                {socialLinks.map((social) => (
+                  <motion.a
+                    key={social.name}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2 }}
+                    className={`flex items-center gap-2.5 rounded-lg border border-white/15 bg-black/50 px-3 py-2.5 text-sm font-semibold text-gray-200 transition hover:border-white/25 ${social.color}`}
+                  >
+                    <social.icon className="h-4 w-4" />
+                    {social.name}
+                  </motion.a>
+                ))}
               </div>
-
-              {/* Additional info */}
-              <div className="glass rounded-2xl p-8 border border-primary/20">
-                <h3 className="text-xl font-bold text-white mb-4" style={{ fontFamily: 'var(--font-orbitron)' }}>
-                  {t('contact.availability.title')}
-                </h3>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 bg-accent rounded-full animate-pulse"></div>
-                  <span className="text-accent font-semibold">{t('contact.availability.status')}</span>
-                </div>
-                <p className="text-gray-300 text-sm">
-                  {t('contact.availability.description')}
+              <div className="mt-auto pt-4">
+                <p className="flex items-center gap-2 text-sm font-semibold text-accent">
+                  <span className="h-2 w-2 animate-pulse rounded-full bg-accent"></span>
+                  {t('contact.availability.status')}
                 </p>
+                <p className="mt-1 text-xs text-gray-500">{t('contact.availability.description')}</p>
               </div>
             </motion.div>
           </div>
